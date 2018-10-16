@@ -1,0 +1,65 @@
+<!--viewages/serverNotice/serverNotice.wxml-->
+<view>
+     
+        <view class="server-tab-header">
+            <view class="server-tab-ul clearfix">
+                <view class="leftOne server-tab-li{{select? '':'a'}}" bindtap="tapName" >按专家预约</view>
+                <view class="server-tab-li{{selectTwo? 'b':''}}" bindtap="tapNameTwo">按时间预约</view>
+            </view>
+        </view>
+            <view class="server_date_ul{{selectUl? 'a':''}}">
+                <view class="server_date_li{{key==index? 'a':''}}" wx:for="{{dateList}}" wx:key="{{id}}" bindtap="timeClick" data-index="{{index}}" data-week="{{item.dayOfWeek}}" data-dete="{{item.date}}">
+                    <view class="server_date_li_p">{{item.dayOfWeekName}}</view>
+                    <view class="server_date_li_p">{{item.monthDate}}</view>
+                </view>
+            </view>
+            <view style="margin-top:60rpx"></view>
+ <view class="server-expert{{showView?'show':''}}" wx:for="{{ serverListAll }}" wx:key="{{ id }}" bindtap="appointDetail" data-name="{{item.userId}}" data-text="{{item.eaId}}">         
+         <view class="server-expert-info">
+              <view class="server-expert-pic">
+                  <image src='{{ item.photosmall }}' mode='widthFix'/>
+              </view>
+              <view class="server-expert-content">
+                    <view class="server-expert-name">
+                      {{item.name}}
+                    </view>
+                    <view class="server-expert-work">{{item.department}}</view>
+                    <view class="server-expert-place">{{item.eaName}}</view>
+                    <view class="server-expert-btn">预约</view>
+              </view>
+                    
+        </view>
+         <view class="server-expert-bottom" wx:if="{{ item.userCount != 0 }}">
+                    <view class="server-feedback">
+                        <view class="server-num"> 服务{{item.userCount}}人  </view>
+                    </view>
+         </view>
+ </view>
+  <view class="server-expert{{showView?'':'show'}}" wx:for="{{ serverListAll_One }}" wx:key="{{ id }}">         
+         <view class="server-expert-info">
+              <view class="server-expert-pic">
+                  <image src='{{ item.photosmall }}' mode='widthFix'/>
+              </view>
+              <view class="server-expert-content">
+                    <view class="server-expert-name">
+                      {{item.name}}
+                    </view>
+                    <view class="server-expert-work">{{item.department}}</view>
+                    <view class="server-expert-place">{{item.eaName}}</view>
+              </view>
+                    
+        </view>
+        
+         <view class="server-expert-bottom" wx:if="{{ item.userCount != 0 }}">
+                    <view class="server-feedback">
+                        <view class="server-num"> 服务{{item.userCount}}人  </view>
+                    </view>
+         </view>
+         
+         <view class="expert_appoint_time">
+                <view class="expert_appoint_timep" wx:if="{{item.morningFull != '-1'}}" catchtap="morningBottn" data-name="{{item}}">预约上午</view>
+                <view class="expert_appoint_timep" wx:if="{{item.afternoonFull != '-1'}}" catchtap="afternoonBottn" data-name="{{item}}">预约下午</view>
+         </view>
+ </view>
+ 
+</view>

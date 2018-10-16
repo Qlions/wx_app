@@ -1,0 +1,97 @@
+/* pages/search/search.wxss */
+page{
+    width: 100%;
+    height: 100%;
+    background:#f7f7f7;
+}
+.searchView{
+    height: auto;
+    width: 100%;
+    border-bottom: 2rpx solid #eee;
+    background: #fff;
+    padding-bottom:12rpx;
+}
+.iconViewS{
+    position: relative;
+    height: auto;
+    /* top: 5rpx; */
+    left: 32rpx;
+    line-height: 66rpx;
+}
+.iconViewS image {
+    width: 30rpx;
+    /* position: relative;
+    top: 10rpx; */
+    vertical-align: middle;
+}
+.inputView{
+    width: 90%;
+    height:70rpx;
+    display: inline-block;
+}
+.inputView input {
+    width: 80%;
+    background: #eee;
+    margin: 0 auto;
+    height: 100%;
+    color: #333;
+    outline:none; 
+    line-height: 70rpx;
+}
+.inputView input:focus{
+    color: #333;
+}
+.searchviewTwo{
+    height: 70rpx;
+    margin: 10rpx auto  0 20rpx;
+    width: 85%;
+    background: #eee;
+    border-radius: 50rpx; 
+    display: flex;
+
+}
+.cancel{
+    display: inline-block;
+    font-size: 30rpx;
+    line-height: 84rpx;
+    float: right;
+    margin-right: 20rpx;
+    color: #999;
+    position: relative;
+    top: -74rpx;
+}
+.historyText{
+    color: #999;
+    font-size: 26rpx;
+    width: 90%;
+    margin: 10rpx auto 0 auto;
+}
+.history{
+    width: 90%;
+    margin: 10rpx auto;
+    font-size: 26rpx;
+    color: #666;
+
+}
+.clearHistory{
+    font-size: 30rpx;
+    color: #999;
+    text-align: center;
+    /* line-height: 70rpx; */
+    background: #f7f7f7;
+    height: 70rpx;
+}
+.clearHistory image{
+    width: 30rpx;
+    vertical-align: middle;
+    height: 30rpx;
+}
+
+.clearHistory text{
+    line-height: 70rpx;
+}
+page{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}

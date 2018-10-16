@@ -1,0 +1,227 @@
+/* pages/login/login.wxss */
+page{
+    height: 100%;
+    background: #f9f9f9;
+}
+.loginImg{
+    width: 100%;
+    height: 300rpx;
+    background: #63b64e;
+    padding: 0.1px;
+}
+.loginImg image{
+    padding: 0.1px;
+    width: 240rpx;
+    display: block;
+    margin: 30rpx auto 0 auto;
+}
+.formUsername {
+    width: 94%;
+    margin: 0 auto;
+    height: 100rpx;
+    overflow: hidden;
+    border-bottom: 1rpx solid #f0f0f0;
+ }
+.formUsername image{
+    width: 76rpx;
+    padding-top: 14rpx;
+    float: left;    
+}
+.formUsername input{
+    width: 80%;
+    display: inline-block;
+    float: left;
+    line-height: 100rpx;
+    height: 100%;
+    color: #333;
+    
+}
+.placeholderClass{
+    color: #999;
+}
+.formPwd{
+    width: 94%;
+    margin: 0 auto;
+    height: 100rpx;
+    overflow: hidden;
+    border-bottom: 1rpx solid #f0f0f0;
+}
+.formPwd image:first-of-type{
+    width: 76rpx;
+    margin-top:-64rpx;    
+    float: left;    
+}
+.formPwd view{
+    width: 80%;
+    display: inline-block;
+    float: left;
+    line-height: 100rpx;
+    height: 100%;
+    color: #333;
+}
+.formPwd view input{
+    height: 100%;
+}
+.formPwd image:last-of-type{
+    width: 50rpx;
+    float: left;
+    margin-top:14px;    
+}
+.loginBtn{
+    background: #63b64e;
+    width: 94%;
+    margin: 100rpx auto 0 auto;
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #fff;
+    text-align: center;
+    border-radius: 10rpx;
+    font-size: 32rpx;
+}
+
+
+
+/* 授权 */
+.wx_authorization, .wx_validation{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+.logo_image{
+    width: 20%;
+    margin: 20% auto 0 auto;
+    text-align: center;
+}
+.logo_image image{
+    width: 100%;
+}
+.logo_image text{
+    font-size: 32rpx;
+    font-family: "黑体";
+}
+/* 手机号输入 */
+.phone_input{
+    width: 80%;
+    height: 92rpx;
+    border: 3rpx #c7c7c7 solid;
+    margin: 8% auto 0 auto;
+}
+.phone_input input {
+    height: 100%;
+    width: 94%;
+    margin-left: 6%;
+
+}
+.phone_placeholder{
+    color: #cccccc;
+    font-size: 32rpx;
+}
+.tip_content{
+    width: 80%;
+    font-size: 32rpx;
+    margin: 0 auto;
+}
+.tip_content text{
+    width: 100%;
+    font-size: 24rpx;
+    color: #a0a0a0;
+}
+.validation_next{
+    width: 80%;
+    height: 92rpx;
+    margin: 8% auto 0 auto;
+    text-align: center;
+    background: #c4c4c4;
+}
+.validation_next text{
+    color: #fff;
+    line-height: 92rpx;
+    font-size: 36rpx;
+}
+
+
+/* 微信授权 */
+.apply_content{
+    width: 80%;
+    font-size: 32rpx;
+    margin: 10% auto 0 auto;
+}
+.apply_content text{
+    width: 100%;
+    font-size: 24rpx;
+    color: #a0a0a0;
+    display: block;
+    text-align: center;
+}
+.authorization_next{
+    width: 80%;
+    height: 92rpx;
+    margin: 5% auto 0 auto;
+    text-align: center;
+    background: #63b44e;
+}
+.authorization_next text{
+    color: #fff;
+    line-height: 92rpx;
+    font-size: 36rpx;
+}
+
+
+/* 获取验证码 */
+.wx_phone_number{
+    width: 100%;
+    height: 100%;
+}
+.phone_get_code{
+    width: 100%;
+    margin-top: 20rpx;
+    background: #fff;
+}
+.phone_number, .phone_code{
+    width: 94%;
+    display: flex;
+    margin: 0 auto;
+    height: 92rpx;
+}
+.phone_number input, .phone_code input{
+    width: 300rpx;
+    height: 100%;
+    line-height: 92rpx;
+    color: #333;
+    font-size: 32rpx;
+}
+.number_text, .code_text{
+    width: 20%;
+    height: 100%;
+    line-height: 92rpx;
+    font-size: 32rpx;
+    color: #333;
+}
+.seconds_text{
+    width: 210rpx;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    height: 60rpx;
+    margin-top: 16rpx;
+    text-align: center;
+    border: 2rpx solid #c7c7c7;
+    border-radius: 8rpx;
+    position: absolute;
+    right: 3%;
+}
+
+.phone_number{
+    border-bottom: 2rpx #c7c7c7 solid;
+}
+.phone_number_btn{
+    width: 94%;
+    height: 92rpx;
+    margin: 8% auto 0 auto;
+    text-align: center;
+    background: #c4c4c4;
+    font-size: 36rpx;
+}
+.phone_number_btn text{
+    color: #fff;
+    line-height: 92rpx;
+}

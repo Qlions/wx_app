@@ -1,0 +1,8 @@
+/* pages/serverNotice/serverNotice.wxss */
+view{
+    width: 100%;
+}
+view image{
+    display: block;
+    width: 100%;
+}

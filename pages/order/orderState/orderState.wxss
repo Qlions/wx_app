@@ -1,0 +1,72 @@
+/* pages/order/orderState/orderState.wxss */
+page{
+    height: 100%;
+}
+.order_state{
+    width: 92%;
+    margin: 0 auto;
+    font-size: 24rpx;
+}
+.order_id{
+    color: #666;
+    font-size: 30rpx;
+    line-height: 40rpx;
+    font-size: 24rpx;
+}
+.order_state_text{
+    color: #ff5454;
+    float: right;
+    font-size: 24rpx;
+}
+
+.a{
+    border-radius: 50%;
+    width: 30rpx;
+    height: 30rpx;
+    display: flex;
+    background: #eee;
+    align-items: center;
+    justify-content: center;
+}
+.b{
+    border-radius: 50%;
+    width: 15rpx;
+    height: 15rpx;
+    background: #eee;
+    border: 4rpx solid #fff;
+    margin: 0 auto;
+}
+.line{
+    width: 4rpx;
+    height: 80rpx;
+    background: #eee;
+    margin-left: 13rpx;
+}
+.c{
+    width: 92%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.progress_text{
+    flex-grow: 9;
+    font-size: 26rpx;
+}
+.time{
+    float: right;
+}
+.progress{
+    border-bottom: 2rpx solid #eee;
+    line-height: 110rpx;
+    color: #999;
+}
+.progress_pic{
+    flex-grow: 1;
+    margin-top:40rpx;    
+}
+.d{
+    background: #79ba6a;
+}
+.green{
+    color: #79ba6a;
+}

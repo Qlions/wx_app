@@ -1,0 +1,24 @@
+<!--pages/serviceTime/serviceTime.wxml-->
+<wxs src="../filter/money.wxs" module="money" />
+<view class='appointmentTimeView'>
+    <view class='leftBtn' catchtap='leftBind'>
+        <image src="../../image/left-btn.png" mode='widthFix' />
+    </view>
+    <scroll-view scroll-x class='weekView' scroll-into-view="{{toView}}" scroll-with-animation scroll-left="108" bindscroll='scrollMsg'>
+        <view class='appointmentWeek {{tapNum == index ? "text_active_color" : ""}}' catchtap='checkTime' wx:key='{{index}}' id='a{{index}}' data-tap_num="{{index}}"   wx:for="{{appointmentTimeData}}">
+            <text>{{item.month}}</text>
+            <text>{{item.week}}</text>
+        </view>
+     </scroll-view> 
+    <view class='rightBtn' catchtap='rightBind'>
+        <image src="../../image/right-btn.png" mode='widthFix' />
+    </view>
+</view>
+
+<!--时间-->
+<view class='appointmentTimeView2'>
+    <view bindtap='chooseTime' data-time="{{ item }}" data-date="{{ appointmentTimeData[tapNum].date }}" class='{{ money.timeStamp(appointmentTimeData[tapNum].date+" "+item)>timestamp?"timeView":"timeViewCor" }}' wx:for="{{appointmentTimeData[tapNum].time}}">
+        <text>{{ item }}</text>
+    </view>
+</view>
+

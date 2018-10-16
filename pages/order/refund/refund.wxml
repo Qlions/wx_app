@@ -1,0 +1,43 @@
+<!--pages/order/refund/refund.wxml-->
+<view>
+    <view class="list">
+        <text>根据<text style="color:#ff7f10;">退款规则</text>，本次为您退款</text>
+    </view>
+    <view class="refund_view">
+        <text>{{refundMoney}}</text><text>元</text>
+    </view>
+    <view class="text1">
+        <text>请选择您的退款账号</text>
+    </view>
+    <view class="pay_selected" catchtap="refund_pay" data-item="0">
+        <image src="../../../image/pay-weixin.png" mode="widthFix" class="weixin_icon"/>
+        <text style="margin-left: 20rpx;">微信零钱</text>
+        <image src="{{selected[0]? '../../../image/pay-sure.png': '../../../image/pay-cancel.png'}}" mode="widthFix" class="selected" />
+    </view>
+
+    <view class="pay_selected" catchtap="refund_pay" data-item="1" style="border-bottom:{{selected[1]? ' 2rpx solid #eee':'none' }};">
+        <image src="../../../image/pay-zhifubao.png" mode="widthFix" class="weixin_icon"/>
+        <text style="margin-left: 20rpx;">支付宝余额</text>
+        <image src="{{selected[1]? '../../../image/pay-sure.png': '../../../image/pay-cancel.png'}}" mode="widthFix" class="selected" />
+    </view>
+
+    <view hidden="{{!selected[1]}}">
+        <view class="zhifubao_input1">
+            <text style="display: inline-block;">支付宝账号</text>
+            <input type="text" placeholder="请输入收款人的支付宝账号" bindinput='get_aliUser' value="{{request_refund.accoutName}}"/>
+        </view>
+        <view class="zhifubao_input1" style="border: 0;">
+            <text>真实姓名</text>
+            <input type="text" placeholder="请输入收款人真实姓名" value="{{request_refund.userName}}"  bindinput="get_aliName"/>
+        </view>
+        
+    </view>
+    <view>
+        <view class="tip">
+            <text>因账号输入错误造成资金损失需自行承担，请确认</text>
+        </view>
+        <view class="submit_btn" catchtap="confirm_refund" style="background: {{selected[0] || (selected[1] && request_refund.accoutName && request_refund.userName)? '#63b64e' : '#eee'}}">
+            <text>确定</text>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,14 @@
+<!--pages/paySuc/paySuc.wxml-->
+<view class="paySuc">
+  <view class="successImg_ly">
+    <image src='../../../image/pay_suc.png'></image>
+  </view>
+  <view class="successText_ly">您的订单支付成功</view>
+  <view class="payMoney_ly">支付金额：<text>{{ moneys }}</text>元</view>
+  <view class="choose_ly">
+    <view class="checkOrders_ly" bindtap='checkOrders'>
+      查看订单
+    </view>
+    <view class="goBack_ly" bindtap='goBackHome'>返回首页</view>
+  </view>
+</view>

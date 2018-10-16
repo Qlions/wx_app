@@ -1,0 +1,77 @@
+<!--pages/serverIndex/serverIndex.wxml.wxml-->
+<!--
+    Create 2018-4-18
+    服务列表
+  -->
+ <view >  
+  <!-- 头部  -->
+   <header 
+    class="serverHeader"
+    headerText = "{{ headerCompValue.headerText }}"
+    isLocationShow = "{{ headerCompValue.isLocationShow }}"
+    isSearchShow = "{{ headerCompValue.isSearchShow }}"
+    addressName="{{ addressName }}"
+    ></header> 
+  <!--分类  myEventListener 自定义事件 myClassify和组件相同 -->
+   <classify class="serverClassify" bindmyClassify='myEventListener'></classify> 
+ 
+ 
+
+  <!--服务列表  -->
+
+<scroll-view scroll-with-animation bindscrolltoupper="upper"  bindscrolltolower="lower" bindscroll="scroll" class='serverItemScroll' > 
+    <!-- <view class='serverItemView' > -->
+    <navigator url='/pages/serverItem/serverItem?serviceDictId={{item.serviceDictId}}&type={{ item.serviceDictReservation }}'  wx:for="{{ serverListArr }}" wx:for-index="idxArr" wx:key="{{ index }}">
+        <view class='serverItem'>
+            <view class='serverImage'
+                style="background: url('{{ item.imgUrl }}') no-repeat center; background-size: cover;"
+            >
+                <!-- <image src='../../../image/service_manbing.png' mode='widthFix'></image> -->
+            </view>
+            
+            <view class='serverMsg'>
+                <view class='serverName'>
+                    <text>{{ item.serviceDictName }}</text>
+                </view>
+                <view class='serverEa'>
+                    <text>由<text class='eaName'>\t{{ item.eaName }}\t</text>提供服务</text>
+                </view>
+                
+                  <view style='height:50rpx;'>
+                    <view class='serverClass'>
+                        <image src='../../image/server_method.png' mode='widthFix'></image>
+                        <text>{{ item.serviceDictComponent == "F003" || item.serviceDictComponent == "电话服务" ? "电话咨询" : item.serviceDictWay}}</text>
+                    </view>
+                    <view class='serverTimeView' wx:if='{{item.serviceDictTime != null}}'>
+                        <image src='../../image/server_time.png' mode='widthFix'></image>
+                        <text class='servertime'>{{ item.serviceDictTime }}分钟</text>
+                    </view>
+                </view>
+                <!-- 跳转确认服务--> 
+                <view catchtap="tap" data-servicedictid="{{item.serviceDictId}}" data-eaname="{{ item.eaName }}" data-imgurl="{{item.imgUrl}}" data-servicedictname="{{item.serviceDictName}}" data-servicemoney="{{item.serviceDictMoneyScope}}" data-servicedictway="{{item.serviceDictWay}}" data-servicedictcomponent="{{item.serviceDictComponent}}"  >
+                    <view class='serverMoney'>
+                        <text >{{ serverMoneys[idxArr]  }}</text>
+                        <view class='serverBuy'>
+                                <text >{{ item.serviceDictReservation == 0 ? "购买" : "预约" }}</text>
+                                <image 
+                                src="{{ item.serviceDictReservation == 0 ? '../../image/buy_icon.png' : '../../image/yuyuepic.png'}}" 
+                                mode='widthFix'
+                                ></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </navigator>
+            <view class='noData'  hidden="{{ !isHideLoadMore }}">暂无更多数据</view>
+        <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+            <view class="weui-loading"></view>
+            <!---<view class="weui-loadmore__tips">正在加载</view>-->
+        </view>
+    </scroll-view>
+</view> 
+
+
+
+  
+

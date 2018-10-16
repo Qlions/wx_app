@@ -1,0 +1,45 @@
+/* pages/paySuc/paySuc.wxss */
+.paySuc {
+  padding: 50rpx 30rpx;
+  text-align: center;
+  color: #333;
+}
+.successImg_ly image {
+  width:150rpx;
+  height:150rpx;
+}
+.successText_ly {
+  font-size: 36rpx;
+  padding-top:25rpx;
+}
+.payMoney_ly {
+  font-size: 26rpx;
+  padding-top:25rpx;
+}
+.payMoney_ly text {
+  color: #ff5454;
+}
+.checkOrders_ly {
+  width:250rpx;
+  height:70rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #e6e6e6;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 26rpx;
+  float: left;
+}
+.choose_ly {
+  padding-top: 50rpx;
+  overflow: hidden;
+}
+.goBack_ly {
+  width:250rpx;
+  height:70rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #e6e6e6;
+  text-align: center;
+  line-height: 70rpx;
+  float: right;
+  font-size: 26rpx;
+}

@@ -1,0 +1,133 @@
+/* pages/serverLocation/serverLocation.wxss */
+ .cheackAddressView{
+    width: 100%;
+    background: #63b64e;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+} 
+.addressView{
+    width: 94%;
+    margin: 0 auto;
+    height: 300rpx;
+}
+.addCityView{
+    height: 84rpx;
+    border-bottom: 1rpx solid #fff;
+}
+.locationImg{
+    width: 30rpx;
+    vertical-align: middle;
+    float: left;
+    margin-top: 28rpx;
+}
+.locationMyImg{
+    width: 26rpx;
+    display: block;
+    margin: 0 auto;
+}
+.locationBox{
+    display: inline-block;
+    width: 80%;
+    height: 100%;
+}
+.locationTwo{
+    border-bottom: 1rpx solid #fff;
+    height: 82rpx;
+}
+.closeImg{
+    width: 24rpx;
+    float: right;
+    vertical-align: middle;
+    margin-top: 28rpx; 
+}
+.myLocationText{
+    font-size: 22rpx;
+    color: #fff;
+    display: block;
+    text-align: center;
+    line-height: 44rpx;
+}
+.myLocationBox{
+    width: 120rpx;
+    display: inline-block;
+    float: right;
+    padding-top: 14rpx;
+    border-left: 1rpx solid #fff;
+}
+.checkImg{
+    width: 16rpx;
+    margin-top: 33rpx;
+    float: right;
+}
+.clear{
+    clear: both;
+}
+.addressName{
+    font-size: 30rpx;
+    color: #fff;
+    margin-left: 20rpx;
+    line-height: 84rpx;
+}
+.addressName2{
+    font-size: 30rpx;
+    color: #fff;
+    margin-left: 20rpx;
+    line-height: 84rpx;
+    display: inline-block;
+    height: 100%;  
+}
+
+.searchAddressBtn{
+    text-align: center;
+    height: 84rpx;
+    background: #fff;
+    color: #666;
+    font-size: 26rpx;
+    line-height: 84rpx;
+    border-radius: 15rpx;
+    display: block;
+    margin-top: 24rpx;
+}
+.historyList{
+    width: 94%;
+    margin:  0 auto;
+    border-bottom: 2rpx solid #eee;
+
+}
+.historyIcon{
+    width: 30rpx;
+    vertical-align: middle;
+}
+.historyText{
+    font-size: 24rpx;
+    color: #666;
+    line-height: 84rpx;
+    margin-left: 16rpx;
+}
+
+.placeholderStyle{
+    color: #eee;
+}
+.inputSearchList{
+    width: 94%;
+    margin: 0 auto;
+    border-bottom: 2rpx solid #e6e6e6;
+}
+.inputSearchList image{
+    width: 30rpx;
+    position: relative;
+    top: 20rpx;
+    
+}
+.inputSearchList text{
+    font-size: 26rpx;
+    color: #333;
+    margin-left: 20rpx;
+    line-height: 50rpx;
+}
+.inputSearchList text:last-of-type{
+    margin-left: 50rpx;
+    font-size: 24rpx;
+    color: #6a6a6a;
+}

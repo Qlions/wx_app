@@ -1,0 +1,66 @@
+<!--pages/serverItem/serverItem.wxml-->
+<wxs module='filters' src="../filter/money.wxs"/>
+<view class='imgView'>
+    <block>
+        <image src='' mode='widthFix' wx:for="{{imgList}}" wx:key='{{index}}' src='{{item}}' data-src='{{item}}' catchtap='imgLook'></image>
+    </block>
+</view>
+<view class='serverMsg' >
+    <text class='serverName'>{{ serverItemMsg.serviceDictName }}</text>
+    <view style='height:50rpx;'>
+        <view class='serverClassView'>
+            <image src='../../image/server_method.png' mode='widthFix'></image>
+            <text class='serverClass'>{{ serverItemMsg.serviceDictComponent == "F003" || serverItemMsg.serviceDictComponent == "电话服务" ? "电话咨询" : serverItemMsg.serviceDictWay }}</text>
+        </view>
+        <view class='serverTimeView' wx:if='{{serverItemMsg.serviceDictTime != null}}'>
+            <image src='../../image/server_time.png' mode='widthFix'></image>
+            <text class='servertime'>{{ serverItemMsg.serviceDictTime }}分钟</text>
+        </view>
+    </view>
+    
+    <view>
+        <text class='serverNum'>已服务\t{{ serverItemMsg.serviceOrderNum }}\t次</text>
+        <navigator url="/pages/rating/rating?serviceDictId={{serverItemMsg.serviceDictId}}" class='rating'>
+             <text class='goodRev' wx:if="{{serverItemMsg.serviceScore != null}}"><text style='color:#ff9600;'>{{ serverItemMsg.serviceScore == null ? '100%' : filters.NumberToFixed(serverItemMsg.serviceScore, 0)+'%' }}</text>好评</text><image src='../../image/server-right.png' mode='widthFix'></image>
+        </navigator>
+    </view>
+    
+    <view class='serverEaView' >
+    
+
+        <image src='../../image/serviceEa.png' mode='widthFix'></image>
+        <navigator url='/pages/ogDetail/ogDetail?serviceDictId={{serverItemMsg.serviceDictId}}' class="dispayImg">
+            <text class='serverEa'>由\t<text>{{ serverItemMsg.eaName }}</text>\t提供服务</text>
+        </navigator>
+    </view>
+    
+</view>
+
+<view class="service_info_content">
+    <view class="tab_service_content {{ bind_num == index ? 'active_tab' :''}}" wx:for="{{tap_sevice_conent_title}}"  wx:key="{{index}}" catchtap="bind_tab" data-num="{{index}}">{{item.serviceDictInfoName}}</view>
+</view>
+<view class="wx_parse">
+    <import src="../../wxParse/wxParse.wxml"/>
+    <template is="wxParse" wx:if="{{bind_num == index}}" wx:for="{{replyTemArray}}" wx:key="{{index}}" data="{{wxParseData:item}}" style=""/>
+</view>
+
+<view class='purchaseNotice'>
+    <view class='purchaseNoticeText'>
+        <text style='line-height:80rpx; float:left;'>购买须知与保障</text>
+        <navigator url='/pages/serverNotice/serverNotice' style='float:right;'>
+            <view class='more'>
+                <text>查看更多</text><image src='../../image/server-right.png' mode='widthFix'></image>
+            </view>
+        </navigator>
+    </view>
+    <image src='../../image/servicedetali_war.png' mode='widthFix' class='NoticeImage'></image>
+</view>
+<view class='buyMoneyBtn'>
+    <text class='serverMoneysText'>{{ serverMoneys? serverMoneys: '￥ 0.00' }}</text>
+    <!--跳转确认服务-->
+    <navigator url="/pages/purchaseService/purchaseService?serviceDictId={{serverItemMsg.serviceDictId}}&type={{ serverItemMsg.serviceDictReservation }}&eaName={{ serverItemMsg.eaName }}&imgUrl={{imgList[0]}}&serviceDictName={{serverItemMsg.serviceDictName}}&serviceMoney={{serverItemMsg.serviceDictMoneyScope}}&serviceDictWay={{serverItemMsg.serviceDictWay}}&serviceDictComponent={{serverItemMsg.serviceDictComponent}}&serviceId={{ serviceUserId }}&serviceDicIden={{ serviceDicIden }}" class='navigatorTwo'>
+         <text class='{{ serverItemMsg.serviceDictReservation == 0 ? "buy" : "make"}}'>{{ serverItemMsg.serviceDictReservation == 0 ? "立即购买" : "立即预约" }}</text>
+    </navigator>
+</view>
+
+

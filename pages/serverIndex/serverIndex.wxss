@@ -1,0 +1,139 @@
+/* pages/serverIndex/serverIndex.wxml.wxss */
+.serverHeader{
+    position: fixed;
+    top:0; 
+    width: 100%;
+    z-index: 17;
+}
+ .serverClassify{
+    margin-top: 84rpx; 
+    display: inline-block;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: #fff;
+} 
+.serverItem{
+    border-bottom:2rpx solid #eee;
+    padding-bottom: 8rpx;    
+}
+/*  加载更多   */
+.weui-loading {
+  margin: 0 auto;
+  width: 40rpx;
+  height: 40rpx;
+   display: block; 
+  vertical-align: middle;
+  -webkit-animation: weuiLoading 1s steps(12, end) infinite;
+  animation: weuiLoading 1s steps(12, end) infinite;
+  background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgxMDB2MTAwSDB6Ii8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTlFOUU5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTMwKSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iIzk4OTY5NyIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgzMCAxMDUuOTggNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjOUI5OTlBIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDYwIDc1Ljk4IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0EzQTFBMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSg5MCA2NSA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNBQkE5QUEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoMTIwIDU4LjY2IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0IyQjJCMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgxNTAgNTQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjQkFCOEI5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA1MCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDMkMwQzEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTE1MCA0NS45OCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDQkNCQ0IiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTEyMCA0MS4zNCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNEMkQyRDIiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDM1IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0RBREFEQSIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgtNjAgMjQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTJFMkUyIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKC0zMCAtNS45OCA2NSkiLz48L3N2Zz4=) no-repeat;
+  background-size: 100%;
+}
+.weui-loadmore {
+  height: 100%;
+  width: 100%;
+  margin: 30rpx auto;
+  line-height: 30rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+.weui-loadmore__tips {
+   display: inline-block; 
+  vertical-align: middle;
+}
+.noData{
+    text-align: center;
+    font-size: 30rpx;
+    line-height: 70rpx;
+    color: #999;
+}
+
+
+/*服务列表  */
+.serverItemScroll{
+    position:absolute;
+    top:340rpx;
+    z-index:-1;
+    width: 100%;
+    background: #fff;
+}
+.serverItemView{
+    width: 100%;
+}
+ .serverItem{
+    display: flex; 
+    width: 92%;
+    margin: 20rpx  auto;
+}
+ .serverImage{
+    height: 200rpx;
+    width: 30%;
+    border-radius: 10rpx;
+}
+.serverImage image{
+    width: 100%;
+}
+
+.serverMsg{
+    font-size: 28rpx;
+    margin-left: 20rpx;
+    color: #333;
+    width: 70%;
+    
+}
+.serverMsg image {
+    width: 35rpx;
+    vertical-align: middle;
+    padding-right: 10rpx;
+
+}
+.serverName{
+    margin:5rpx 0 10rpx 0;
+}
+.serverEa, .serverClass{
+    font-size: 24rpx;
+    color: #999;
+}
+.serverClass{
+    float: left;
+}
+.serverEa{
+    line-height: 45rpx;
+}
+.eaName{
+    color: #494949;
+}
+.serverMoney{
+    font-size:32rpx; 
+    display: inline-block;
+    color: #ff5454;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 5rpx;
+}
+.serverBuy{
+    display: inline-block;
+    float: right;
+    color: #777;
+    font-weight: normal;
+}
+.serverBuy image{
+    width: 40rpx;
+    vertical-align: middle;
+    float: right;
+    padding-left: 10rpx;
+}
+.serverTimeView{
+    margin-left: 10rpx;
+    float: left;
+    height: 50rpx;
+}
+.serverTimeView image{
+    width: 30rpx;
+    vertical-align: middle;
+    
+}
+.servertime{
+    font-size: 24rpx;
+    color: #999;
+}

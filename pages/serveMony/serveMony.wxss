@@ -1,0 +1,145 @@
+.log-list {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+}
+.log-item {
+  margin: 10rpx;
+}
+
+.server-expert{
+	padding: 0 30rpx;
+	background: #fff;
+	border-bottom: 15rpx solid #e2e2e2;
+}
+.server-expert-info{
+		height: 130rpx;
+		width: 100%;
+		padding: 30rpx 0;
+		position: relative;
+}
+.server-expert-pic{
+		width: 130rpx;
+		height: 130rpx;
+		float: left;
+}
+.server-expert-pic image{
+		display: block;
+    	width: 100%;
+    	height: 100%;
+    	border: 0 none;
+    	border-radius: 100%;
+}
+.server-expert-content{
+			float: left; 
+	    padding-left: 30rpx;
+	    width: 75%; 
+	    position: relative;
+}
+.server-expert-name{
+			font-size: 28rpx;
+	    color: #000;
+	    letter-spacing: 2rpx;
+	    margin-top: 10rpx;
+	    position: relative;
+	    display: inline-block;
+}
+.server-expert-work{
+			font-size: 24rpx;
+	    margin-top: 8rpx;
+	    color: #777777;
+}
+.server-expert-place{
+			font-size: 24rpx;
+    	color: #858585;
+}
+.server-expert-distance{
+			position: absolute;
+	    top: 30rpx;
+	    right: 0;
+	    color: #7a7a7a;
+	    font-size: 24rpx;
+	    line-height: 24rpx;
+}
+.server-expert-bottom{
+			clear:both;
+	 		margin-left: 160rpx;
+	    width: 76%;
+	    height: 75rpx;
+	    border-top: 1rpx solid #f3f3f3;
+}
+.server-feedback{
+	height: 75rpx;
+	border-top: 1rpx solid #f3f3f3;
+}
+.server-num{
+	 color: #7a7a7a;
+	    font-size: 24rpx;
+	    float: left;
+	    line-height: 75rpx;
+}
+.expert-intro{
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		left: 0;
+		top: 0;
+		background: rgba(0,0,0,0.3);
+		z-index: 99;
+	}
+.expert-intro .expert-intro-panel{
+		width: 90%;
+		height: 732rpx;
+		position: relative;
+		margin-left: 5%;
+		top: 50%;
+		margin-top: -366rpx;
+		border-radius: 6rpx 6rpx 0 0;
+		background: #fff;
+		display: -webkit-box;
+ 		-webkit-box-orient: vertical;
+}
+.expert-intro .expert-intro-panel .h2{
+		width: 100%;
+		height: 108rpx;
+		font-size: 33rpx;
+		color: #009984;
+		border-bottom: 2rpx solid #f3f3f3;
+		text-align: center;
+		line-height: 108rpx;
+	}
+	.expert-intro-panel .expert-intro-content{
+		width: 90%;
+		-webkit-box-flex: 1;
+		overflow-y: scroll;
+		padding: 25rpx 18rpx 0;
+		font-size: 20rpx;
+		background: #fff;
+	}
+	.expert-intro-good{
+		line-height: 32rpx;
+		margin-top: 40rpx;
+	}
+	.expert-intro-panel .expert-intro-profile{
+		line-height: 32rpx;
+		margin-top: 4rpx;
+	}
+	.expert-intro-opera{
+		width: 100%;
+		height: 94rpx;
+	}
+	.expert-intro-opera view{
+		width: 50%;
+		height: 100%;
+		float: left;
+		color: #fff;
+		font-size: 30rpx;
+		text-align: center;
+		line-height: 94rpx;
+	}
+	.expert-intro-opera view:first-child{
+		background: #e6e6e6;
+	}
+	.expert-intro-opera view:last-child{
+		background: #009984;
+	}

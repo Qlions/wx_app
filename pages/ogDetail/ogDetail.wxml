@@ -1,0 +1,56 @@
+<!--viewages/serverNotice/serverNotice.wxml-->
+<view class="organList">
+    <view class="organFrist"><!--机构简介头部-->
+        <view class="organHeadImg" >
+            <image src='../../image/mine_adderss_name.png' mode='widthFix'/>
+        </view><!--机构头像-->
+        <view class="organIntrod">
+            <view class="organNanme">
+            {{ serverItemMsg.shopName }}
+            </view><!--机构名称-->
+            
+            <view class="organP"><!--机构电话地理位置距离-->
+                <view class="organFirstL">
+                
+                    <view class="oranTel_img">
+                        <image src='../../image/bell_icon.png' mode='widthFix'/>
+                    </view>
+                    <view class="oranTel"> {{ serverItemMsg.shopTel }}</view>
+                </view>
+                
+            </view>
+            <view class="organP"><!--机构电话地理位置距离-->
+                <view class="organFirstL">
+                
+                    <view class="oranTel_img">
+                        <image src='../../image/bell_icon.png' mode='widthFix'/>
+                    </view>
+                    <view class="oranTel">{{ serverItemMsg.strDistrict }}</view>
+                </view>
+                
+            </view>
+            <view class="organP"><!--机构电话地理位置距离-->
+                <view class="organFirstL">
+                
+                    <view class="oranTel_img">
+                        <image src='../../image/bell_icon.png' mode='widthFix'/>
+                    </view>
+                    <view class="oranTel">{{serverItemMsg.shopServiceTime}}</view>
+                </view>
+                
+            </view>
+  
+        </view>      
+    </view>
+                <view bindtap="tapName">
+                    <view class="oranBriefLi">
+                        <view class="viewClass{{select? 'a':''}}">{{ serverItemMsg.strScope}}</view><!--文本介绍-->
+                    </view>
+                    <view class="downDiv{{showView?'':'show'}}">
+                        <image src='../../image/down.png' mode='widthFix'/>
+                    </view>
+                    <view class="uviewDiv{{showView?'show':''}}">
+                        <image src='../../image/up.png' mode='widthFix'/>
+                    </view>
+                </view>
+</view>

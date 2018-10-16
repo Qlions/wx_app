@@ -1,0 +1,264 @@
+<wxs module="filters" src="../../filter/money.wxs" />
+<view style="height:100%;">
+    
+    <!--pages/orderMsg/orderMsg.wxml-->
+    <view class="orderState">
+        <navigator url="/pages/order/orderState/orderState?ordercode={{orderMsg.orderCode}}&orderid={{orderMsg.orderId}}">
+            <text>订单状态</text><text style="float:right;color: #ff5454;">{{ 
+                    orderMsg.orderState==1?"待抢单":
+                    orderMsg.orderState==0?"待付款":
+                    orderMsg.orderState==2?"已完成":
+                    orderMsg.orderState==3?"待接单":
+                    orderMsg.orderState==4?"待服务":
+                    orderMsg.orderState==6?"已取消":
+                    orderMsg.orderState==7?"挂单":
+                    orderMsg.orderState == 8?"处理中":""
+                    }}
+            </text>
+        </navigator >
+    </view>
+    <view style="border-top: 12rpx solid #eee;"></view>
+    <view class="orderUserState">
+        <view class="orderNumber">
+            <text>订单编号</text><text>{{orderMsg.orderCode}}</text>
+        </view>
+        <view class="downOrderTime">
+            <text>下单时间</text>
+            <text>{{filters.timeDate(orderMsg.createTime, 2)}}</text>
+        </view>
+        <view class="user_msg">
+            <text>联系方式</text>
+            <block>
+                <text >{{orderMsg.customerName}}</text>
+                <text style="padding: 0 20rpx 0 20rpx;">{{orderMsg.customerMobile}}</text>
+                <text>{{ !orderMsg.customerMaritalState?"":
+                    orderMsg.customerMaritalState == 1 ? "未婚": 
+                    orderMsg.customerMaritalState == 2 ? "已婚":
+                    orderMsg.customerMaritalState == 3 ? "丧偶":
+                    orderMsg.customerMaritalState == 4 ? "离异":
+                    orderMsg.customerMaritalState == 5 ? "其他":""
+                }}</text>
+            </block>
+        </view>
+        <view class="downOrderTime" hidden="{{!orderMsg.customerCartNo}}">
+            <text>身份证号</text>
+            <text>{{orderMsg.customerCartNo}}</text>
+        </view>
+        <view class="downOrderTime" hidden="{{!orderMsg.customerMailAddress}}">
+            <text>报告领取</text>
+            <text>{{orderMsg.customerMailAddress}}</text>
+        </view>
+    </view>
+
+    <view style="border-top: 12rpx solid #eee;"></view>
+    <view style="width: 92%; margin: 0 auto;">
+        <navigator url="/pages/serverItem/serverItem?serviceDictId={{ orderMsg.serviceDictId }}&type={{ orderMsg.serviceType }}" class="order_msg">
+                <!--<block>
+                    <image src="{{ item.imgUrl }}" mode='widthFix' class='service_img'></image>
+                </block>-->
+            <view class="service_img" style="background: url( {{orderMsg.imgUrl}}) no-repeat center;background-size: cover;float: left;"></view>
+                <view style="margin:8rpx 0  0 20rpx; width: 75%;float: right;">
+                    <text class='service_name'>{{orderMsg.serviceName}}</text>
+                    <text class='service_ea'>由<text class='service_ea_name'>{{orderMsg.eaName}}</text>提供服务</text>
+                    <view class='order_view'>
+                        <image src="../../../image/server_method.png" mode='widthFix' class='service_class_image' />
+                        <text class='service_class'>{{orderMsg.serviceComponent?orderMsg.serviceComponent:orderMsg.serviceWay}}\t\t</text>
+                        <block wx:if="{{item.serviceTime}}">
+                            <image src="../../../image/server_time.png" mode="widthFix" class='service_time_image'/>
+                            <text class='service_tiem'>{{orderMsg.serviceTime}}分钟</text>
+                        </block>
+                            <text class="service_money">{{ orderMsg.servicePayMoney?filters.toFixed(orderMsg.servicePayMoney): "0.00"}}</text>
+                    </view>
+                </view>
+            </navigator>
+            <view class="service_doc_name_time">
+                <block wx:if="{{orderMsg.hospitalStr != null}}">
+                    <view class="service_doc_name" wx:if="{{ filters.isIncludes(orderMsg.hospitalStr, orderMsg.docRemoved) && orderMsg.docRemoved == 1}}">
+                    <text>服务人员</text><text class="service_doc">{{orderMsg.serviceDocName}}</text><text style="color:#999;">{{filters.proTitle(orderMsg.proTitle)}}</text>
+                    </view>
+                    <view class="service_doc_name"  wx:else>
+                        <text>服务专家</text><text class="service_doc">{{orderMsg.serviceDocName}}</text><text style="color:#999;">{{filters.proTitle(orderMsg.proTitle)}}</text>
+                    </view>    
+                </block>
+                    
+                <view class="service_doc_name" wx:if="{{orderMsg.serviceWay =='门诊(店)服务' || orderMsg.serviceWay =='综合服务'}}">
+                    <text>服务地址</text><text class="service_address">{{orderMsg.address}}</text>
+                </view>  
+            <!--<view class="service_doc_time" >
+                    <text class='service_time_text'>服务时间</text>
+                    <text class="service_time">{{filters.timeDate(orderMsg.createTime)}}</text>
+                </view>
+                <view class="service_doc_time" wx:if="{{false}}">
+                    <text class="service_time_text">服务时间</text>
+                    <text class="service_time">2018-12-09</text>
+                </view>-->
+            </view>
+        </view>
+        <view style="border-top: 12rpx solid #eee;"></view>
+        <view style="width: 92%; margin: 0 auto; ">
+            <view class="pay_mode" >
+                <text class="pay_mode_text">支付方式</text>
+                <text class="pay_mode_int">{{orderMsg.inOutType==0?"在线支付":"线下支付"}}</text>
+            </view>
+            <view class="service_total" >
+                <text class="service_total_text">服务总额</text>
+                <text style="float: right; color: #ff5454;">{{orderMsg.totalServiceMoney?filters.toFixed(orderMsg.totalServiceMoney): "0.00"}}</text>
+            </view>
+            <view class="service_total" wx:if="{{filters.intNumber(orderMsg.eaCouponMoney) + filters.intNumber(orderMsg.platCouponMoney) != 0}}">
+                <text class="service_total_text">优惠卷{{filters.intNumber(orderMsg.eaCouponMoney)}}</text>
+                <text style="float: right; color: #ff5454;">{{orderMsg.platCouponMoney?filters.toFixed(orderMsg.platCouponMoney): "0.00"}}</text>
+            </view>
+            <view class="service_total" wx:if="{{orderMsg.deductAmountUseBean != 0}}">
+                <text class="service_total_text">健康豆</text>
+                <text style="float: right; color: #ff5454;">{{orderMsg.deductAmountUseBean?filters.toFixed(orderMsg.deductAmountUseBean): "0.00"}}</text>
+            </view>
+        </view>
+
+        <view class="pay_money_view">
+            <view style="float:right;">
+                <text >实付款：</text><text style="font-weight: bold;">{{filters.toFixed(orderMsg.payMoney)?filters.toFixed(orderMsg.payMoney): "0.00" }}</text>
+            </view>
+        </view>
+
+        <view class="order_btn" >
+            <block wx:if="{{(orderMsg.orderState == 3 || orderMsg.orderState == 8) || (orderMsg.orderState == 4&&orderMsg.startTime ==''&&orderMsg.serviceComponent !='图文服务')}}">
+                 <view class="btn_box" catchtap="cancel_order" data-servicereservation="{{orderMsg.serviceReservation}}" data-reservationmode="{{orderMsg.reservationMode}}" data-orderid="{{orderMsg.orderId}}" data-eaid="{{orderMsg.eaId}}">
+                    <text class="cancel_btn" style="margin-right: 8rpx;">取消服务</text>
+                </view>
+            </block>
+
+            <block wx:elif="{{orderMsg.orderState == 4 && orderMsg.serviceComponent == '图文服务'}}">
+                <view class="btn_box">
+                    <text class="cancel_btn" style="margin-right: 8rpx;">立即咨询</text>
+                </view>
+            </block>
+
+            <block  wx:elif="{{orderMsg.orderState == 0 && _timeDown}}">
+                <view  class="btn_box">
+                    <text class="time_count_down" >{{_timeDown}}后订单自动取消</text>
+                    <text class="cancel_btn" style="margin-right: 8rpx;" catchtap="cancel_order" data-orderid="{{orderMsg.orderId}}" data-eaid="{{orderMsg.eaId}}">取消服务</text>
+                    <text class="pay_btn" catchtap="pay_ment_order" data-orderid="{{orderMsg.orderId}}" data-paymentchannel="{{orderMsg.paymentChannel}}">支付</text>
+                </view >
+            </block>
+
+            <block wx:elif="{{ orderMsg.orderState == 0 && !_timeDown == ''}}">
+                <view class="btn_box">
+                    <text class="del_btn" catchtap="del_order" data-orderid="{{orderMsg.orderId}}">删除</text>
+                </view>
+            </block>
+        
+            <block  wx:elif="{{orderMsg.orderState == 6}}">
+                <view class="btn_box">
+                    <text class="del_btn"  style="margin-right: 8rpx;" catchtap='go_service_item' data-serviceid="{{orderMsg.serviceId}}" data-servicedictid="{{orderMsg.serviceDictId}}">再次购买</text>
+                    <text class="del_btn" catchtap="del_order" data-orderid="{{orderMsg.orderId}}">删除</text>
+                </view>
+            </block>
+        
+            <block wx:elif="{{orderMsg.orderState == 7 && orderMsg.orderHangState == 13}}">
+                <view class="btn_box"  catchtap="orderFinish" data-orderid="{{ orderMsg.orderId }}" data-docuserid="{{orderMsg.serviceUserId}}">
+                    <text class="del_btn" style="background: #63b64e; border:2rpx solid #63b64e;">确认完成</text>
+                </view>
+            </block>
+
+             <block wx:elif="{{orderMsg.orderState == 2}}">
+                <view class="evaluation" >
+                   <view style="width:15%;" wx:if="{{ orderMsg.startLevel!='' }}">
+                        <text style="float:left;">已评价</text>
+                   </view>
+                    <view class="star" wx:if="{{ orderMsg.startLevel!='' }}">
+                          <image src="../../../image/red_star.png" wx:for="{{orderMsg.startLevel}}" mode="widthFix"/>
+                        <image src="../../../image/gray_star.png" wx:for="{{5-filters.intNumber(orderMsg.startLevel)}}" mode="widthFix"/>
+                    </view>
+                    <text class="del_btn"  style="margin-right: 8rpx;" wx:if="{{orderMsg.QId}}" catchtap='go_service_item' data-serviceid="{{orderMsg.serviceId}}" data-servicedictid="{{orderMsg.serviceDictId}}">再次购买</text>
+                    <text class="del_btn" catchtap="del_order" data-orderid="{{orderMsg.orderId}}">删除</text>
+                    <text class="del_btn" style="margin-left: 8rpx; background: #63b64e;border:2rpx solid #63b64e;" catchtap="publishedShow" data-orderid="{{orderMsg.orderId}}" data-docuserid="{{orderMsg.serviceUserId}}" wx:if="{{orderMsg.startLevel == ''}}">发表评价</text>
+                </view>
+            </block>
+        </view>                 
+</view>
+
+
+<!--取消原因-->
+<view class="order_cancel" hidden="{{isHide}}" > 
+    <view class="cancel_list1">
+        <text class="close_text">请选择取消原因(必选)</text>
+        <image src="../../../image/close_img.png" mode="widthFix" class="close_" catchtap="close_why"/>
+    </view>
+    <view  class="cancel_list" catchtap="cancel_item" data-idx="0" data-text="不想买了">
+        <image src="{{cancel_item_data[0]? '../../../image/pay-cancel.png':'../../../image/pay-sure.png'}}" mode="widthFix" />
+        <text>不想买了</text>
+    </view>
+    <view  class="cancel_list" catchtap="cancel_item" data-idx="1" data-text="价格较贵">
+        <image src="{{cancel_item_data[1]? '../../../image/pay-cancel.png':'../../../image/pay-sure.png'}}" mode="widthFix" />
+        <text>价格较贵</text>
+    </view>
+    <view  class="cancel_list" catchtap="cancel_item" data-idx="2" data-text="重复下单">
+        <image src="{{cancel_item_data[2]? '../../../image/pay-cancel.png':'../../../image/pay-sure.png'}}" mode="widthFix" />
+        <text>重复下单</text>
+    </view>
+    <view  class="cancel_list" catchtap="cancel_item" data-idx="3" data-text="订单无法支付">
+        <image src="{{cancel_item_data[3]? '../../../image/pay-cancel.png':'../../../image/pay-sure.png'}}" mode="widthFix" />
+        <text>订单无法支付</text>
+    </view>
+    <view  class="cancel_list" catchtap="cancel_item" data-idx="4" data-text="预约时间有误">
+        <image src="{{cancel_item_data[4]? '../../../image/pay-cancel.png':'../../../image/pay-sure.png'}}" mode="widthFix" />
+        <text>预约时间有误</text>
+    </view>
+    <view  class="cancel_list" style="height: 80rpx;" catchtap="cancel_item" data-idx="5">
+        <image src="{{cancel_item_data[5]? '../../../image/pay-cancel.png':'../../../image/pay-sure.png'}}" mode="widthFix" />
+        <text>其他</text>
+    </view>
+     <input input type="text" class="cancel_list input" bindblur="get_input_value"  value="{{input}}" placeholder="请输入取消原因" focus="{{!cancel_item_data[5]}}"  disabled="{{cancel_item_data[5]}}"/>
+
+    <view  class="cancel_ok" catchtap="commit_cancel">
+        <text>确认提交</text>
+    </view>
+</view>
+<view class="mask" hidden="{{isHide}}" catchtouchmove="preventTouchMove">
+    
+</view>
+
+<!--选择-->
+<view class="big" hidden="{{isSelected}}">
+    <view class="icon_Exclamation">
+        <view class="one">
+            <image src="../../../image/red-gantanhao.png" mode="widthFix" />
+        </view>
+        
+    </view>
+    <view class="tip_cancel">
+        <text>预约类服务每天累计只能取消3次，超过3次当日不能继续预约！</text>
+    </view>
+    <view class="think_about" catchtap="close_why">
+        <text>考虑一下</text>
+    </view>
+    <navigator url="/pages/serverNotice/serverNotice" class="cancel_instructions">
+        <text>取消须知</text>
+    </navigator>
+    <view class="cancel_now" catchtap="OK">
+        <text>确定</text>
+    </view>
+</view>
+
+<!--发表评价-->
+<view class='evaluation_model' hidden="{{isevaluationShow}}">
+    <view class='evaluation_model_text'>
+        <icon type="clear" size="16" color="#eee" catchtap="publishedShow"/>
+        <text>请评价本次服务</text>
+    </view>
+    <view class="evaluation_model_star">
+        <view class="z">
+            <image src="../../../image/red_star.png" data-num="{{index+1}}"  wx:key="1" wx:for="{{num_star}}" mode="widthFix"  catchtap="order_evaluation"/>
+            <image src="../../../image/gray_star.png" data-num="{{num_star+index+1}}" wx:key="{{index}}" wx:for="{{5-num_star}}"  catchtap="order_evaluation" mode="widthFix"/>
+        </view>
+    </view>
+    <view class="evaluation_model_textarea">
+        <textarea placeholder="这里可以说点话..."  fixed="true" bindinput="get_commentContent" value="{{published_data.textarea_value}}"/>
+    </view>
+    <view class='evaluation_model_btn' catchtap="published">
+        <text>提交评价</text>
+    </view>
+</view>
+
+<view class="mask" hidden="{{isSelected}}" catchtouchmove="preventTouchMove"></view>
+<view class="mask" hidden="{{isevaluationShow}}" catchtouchmove="preventTouchMove"></view>

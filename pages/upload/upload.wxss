@@ -1,0 +1,53 @@
+/* pages/upload/upload.wxss */
+.upload {
+  overflow: hidden;
+  padding:0 20rpx;
+}
+.upload textarea {
+  font-size:12px;
+  width:100%;
+  height:240px;
+  padding-top:20rpx;
+}
+.upload-img {
+  overflow:hidden;
+}
+.upload-img-src {
+  overflow: hidden;
+  float:left;
+}
+.upload-img-src-list {
+  width:160rpx;
+  height:160rpx; 
+  border: 1px solid #e6e6e6;
+  float: left;
+  margin-right:10rpx;
+  position: relative;
+}
+.upload-img-src-list image {
+  width: 100%;
+  height: 100%;
+}
+.upload-img-src-list .remove-img {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.upload-img-btn {
+  width:160rpx;
+  height:160rpx;
+  border: 1px solid #e6e6e6;
+  text-align:center;
+  float: left;
+}
+.upload-img-btn image {
+  width:100rpx;
+  height:100rpx;
+  vertical-align:middle;
+  margin-top:35rpx;
+}
+.upload-btn {
+  margin-top: 50rpx;
+}

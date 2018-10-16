@@ -1,0 +1,14 @@
+<!--viewages/serverNotice/serverNotice.wxml-->
+<view class="classList" wx:for="{{ serverListAll }}" wx:key="{{ id }}" wx:for-index="idx">
+            <view class="classList_one" bindtap="tapName" data-type="{{item.depCode}}" data-name="{{item.docNum}}" data-cond="{{item.depSecond}}"  data-text="{{item.depName}}" data-index="{{idx}}">
+                <view class="classList_l">{{ item.depName }}<span>({{ item.docNum }}人)</span></view>
+                <view class="classList_c"></view>
+                <view class="classList_r{{showView==idx?'show':''}}"><image src='../../image/server-right.png' mode='widthFix'/></view>
+            </view>
+            <!--二级列表-->
+            <view class="classList_two{{select==idx? 'a':''}}" wx:for="{{ item.depSecond }}" wx:for-item="depSecond" wx:key="{{ id }}" catchtap='depart' data-type="{{depSecond.depCode}}" data-name="{{depSecond.docNum}}" data-text="{{depSecond.depName}}">
+                <view class="classList_l" style="margin-left: 30rpx;">{{ depSecond.depName }}<span>({{ depSecond.docNum }}人)</span></view>
+                <view class="classList_c"></view>
+                <view class="classList_r"></view>     
+            </view>
+</view>

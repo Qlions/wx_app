@@ -1,0 +1,50 @@
+.log-list {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+}
+.log-item {
+  margin: 10rpx;
+}
+
+.server_Eva{
+		/*height: 240rpx;*/
+		border-bottom: 1rpx solid #999;
+		padding: 30rpm 0;
+		margin-left: 4%;
+		width: 92%;
+		margin-top: 40rpx;
+}
+.evaName_one{
+		float: left;
+}
+.evaName_one image{
+		float: left;
+		height: 56rpx;
+	    width: 56rpx;
+	    border-radius: 50%;
+	    overflow: hidden;
+}
+.evaName_two{
+		float: right;
+}
+.evaName_two image{
+		height: 28rpx;
+		width: 28rpx;
+		margin-right: 5rpx;
+}
+.serve_cent{
+		height: 20rpx;
+		font-size: 28rpx;
+		margin-top: 20rpx;
+		height: 70rpx;
+}
+.evaTime{
+		color: #999;
+		font-size: 24rpx;
+		margin-bottom: 20rpx;
+}
+.evaName_span{
+	float: left;
+	margin-left: 20rpx;
+}

@@ -1,0 +1,38 @@
+<!--pages/serverNotice/serverNotice.wxml-->
+<view class="server-expert" wx:for="{{ serverListAll }}" wx:key="{{ id }}" data-text="{{item.serviceDictId}}" data-num="{{item.serviceMoney}}" data-type="{{item.userId}}" data-name="{{item.name}}" data-speci="{{item.docSpecialty}}" data-sume="{{item.docResume}}" bindtap="showClick"> 
+ 
+        <view class="server-expert-info">
+              <view class="server-expert-pic">
+                 <image src='{{ item.photosmall }}' mode='widthFix'/>
+              </view>
+              <view class="server-expert-content">
+                    <view class="server-expert-name">
+                           {{ item.name }}
+                    </view>
+                    <view class="server-expert-work">{{ item.department }} {{ item.proTitle }}</view>
+                    <view class="server-expert-place">{{ item.hospital }}</view>
+                    <view class="server-expert-distance" wx:if="{{ item.distance != '-1'}}">{{ item.distance }}公里</view>
+              </view>
+                    
+        </view>
+                <view class="server-expert-bottom">
+                    <view class="server-feedback">
+                        <view class="server-num"> 服务{{ item.serviceNum }}人  </view>
+                    </view>
+                </view>
+</view>
+<view class="expert-intro" bindtap="hideClick" wx:if="{{isShow}}">
+            <view class="expert-intro-panel">
+                <view class="h2">{{name}}</view>
+                <view class="expert-intro-content">
+                    <view class="expert-intro-good">擅长:{{speci}}</view>
+                    <view class="expert-intro-profile">简介:{{sume}}</view>
+                </view>
+                <view class="expert-intro-opera">
+                    <view>取消</view>
+                    <view bindtap="chooseExpert">选择</view>
+                </view>
+                <view class="intro-panel-close"></view>
+            </view>
+        </view>
+        

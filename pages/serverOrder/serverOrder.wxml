@@ -1,0 +1,151 @@
+<!--pages/serverOrder/serverOrder.wxml-->
+<wxs src="../filter/money.wxs" module="money" />
+<view class="server-order">
+  <view class="prompt">请核实您的订单信息，确认无误后进行支付购买</view>
+  <view class="server-order-info">
+    <view class="server-order-info-top">
+      <text class="server-order-info-name">{{ name }}</text>
+      <text class="server-order-info-phone">{{ phone }}</text>
+      <text class="server-order-info-phone" wx:if="{{ marryInfo != '' }}">{{ marryInfo }}</text>
+    </view>
+    <view class="server-order-info-card" wx:if="{{ idCard != '' }}">
+      <text class="server-order-info-name">身份证号： {{ idCard }}</text>
+    </view>
+    <view class="server-order-info-top" wx:if="{{ serviveData.serviceDictWay == '上门服务' }}">
+      <text class="server-order-info-name">{{ address }}{{ addressInfo }}</text>
+    </view>
+    <view class="server-order-info-card" wx:if="{{ mailInfo != '' }}">
+      <text class="server-order-info-name">报告地址： {{ mailInfo }}</text>
+    </view>
+  </view>
+  <!--订单详情-->
+  <view class="server-order-details">
+    <view class="server-order-details-title">
+      订单详情
+    </view>
+    <view class="server-order-details-box">
+      <!--基本信息-->
+      <view class="server-order-details-box-info">
+        <view class="info-left-img">
+          <image src="{{ serviveData.imgUrl }}"></image>
+        </view>
+        <view class="info-left-text">
+          <view class="info-left-text-name">
+            {{ serviveData.serviceDictName }}
+          </view>
+          <view class="info-left-text-source">
+            由<text style='color: #494949;'>\t{{ serviveData.eaName }}\t</text>提供服务
+          </view>
+          <view class="info-left-text-method">
+            <image src='../../image/server_method.png'></image>
+            <view class="info-left-text-method-right">
+              <text style='color: #999;'>\t{{ serviveData.serviceDictComponent == "F003" || serviveData.serviceDictComponent == "电话服务" ? "电话咨询" : serviveData.serviceDictWay }}</text>
+              <text class="method-right">{{ money.toFixed(moneys) }}</text>
+            </view>     
+          </view>
+        </view>
+      </view>
+      <!--基本服务费-->
+      <view class="server-order-details-box-pic" wx:if="{{ serverPersonData != '' }}">
+        <view class="pic-item">
+          <text class="pic-item-title">基础服务</text>
+          <text class="pic-item-line"></text>
+          <text class="pic-item-money">{{ money.toFixed(basicsMoneys) }}</text>
+        </view>
+        <view class="pic-item" wx:for="{{ arrItme }}">
+          <text class="pic-item-title">{{ item.serviceDictItemName }}</text>
+          <text class="pic-item-line"></text>
+          <text class="pic-item-money">{{ money.toFixed(item.serviceItemMoney) }}</text>
+        </view>
+      </view>
+      <view class="server-order-details-box-pic" wx:if="{{ depart != '' }}">
+        <view class="pic-item">
+          <text class="pic-item-title">基础服务</text>
+          <text class="pic-item-line"></text>
+          <text class="pic-item-money">{{ money.toFixed(basicsMoneys) }}</text>
+        </view>
+        <view class="pic-item">
+          <text class="pic-item-title">挂号费</text>
+          <text class="pic-item-line"></text>
+          <text class="pic-item-money">{{ money.toFixed(depart.costMoney) }}</text>
+        </view>
+        <view class="pic-item">
+          <text class="pic-item-title">服务费</text>
+          <text class="pic-item-line"></text>
+          <text class="pic-item-money">{{ money.toFixed(depart.hospitalServiceMoney) }}</text>
+        </view>
+      </view>
+      <!--基本服务信息-->
+      <view class="server-order-details-box-content">
+        <view class="server-order-item server-docInfo" wx:if="{{ depart != '' }}">
+          <text class="server-order-item-name">预约专家</text>
+          <text class="server-order-item-cone" style='color: #fc9912;'>{{ depart.name }} <text style='color: #b7b7b9;'>{{ depart.department }} {{ depart.proTitle }}</text></text>
+        </view>
+        <view class="server-order-item server-docInfo" wx:if="{{ depart == '' }}">
+          <text class="server-order-item-name">服务专家</text>
+          <text class="server-order-item-cone" style='color: #fc9912;'>{{ serverPersonData.name }} <text style='color: #b7b7b9;'>{{ department }} {{ proTitle }}</text></text>
+        </view>
+        <view class="server-order-item server-time" wx:if="{{ types == 1 && depart != '' }}">
+          <text class="server-order-item-name">服务时间</text>
+          <text class="server-order-item-right">{{ money.getDateLine(depart.registerDate) }} {{ depart.timeSlot == 1?"上午":"下午" }}</text>
+        </view>
+        <view class="server-order-item server-docInfo" wx:if="{{ depart != '' }}">
+          <text class="server-order-item-name">服务人员</text>
+          <text class="server-order-item-cone" style='color: #fc9912;'>{{ serverPersonData.name }} <text style='color: #b7b7b9;'>{{ department }} {{ proTitle }}</text></text>
+        </view>
+        <view class="server-order-item server-time" wx:if="{{ types == 1 && depart == '' }}">
+          <text class="server-order-item-name">服务时间</text>
+          <text class="server-order-item-right">{{ date }} {{ time }}</text>
+        </view>
+        <view class="cofimLocal" wx:if="{{ serviveData.serviceDictWay == '门诊(店)服务' || serviveData.serviceDictWay == '综合服务' }}">
+          <view class="server-order-item server-address" wx:if="{{ setverCofimLocal.eaAddressDetail != null && setverCofimLocal.eaAddressDetail != '' }}">
+            <text class="server-order-item-name">服务地址</text>
+            <text class="server-order-item-right">{{ setverCofimLocal.eaAddressDetail }}</text>
+          </view>
+          <view class="server-order-item server-phone" wx:if="{{ setverCofimLocal.eaTel != null && setverCofimLocal.eaTel != '' }}">
+            <text class="server-order-item-name">服务电话</text>
+            <text class="server-order-item-right">{{ setverCofimLocal.eaTel }}</text>
+          </view>
+          <view class="server-order-item server-phone" wx:if="{{ setverCofimLocal.shopServiceTime != null && setverCofimLocal.shopServiceTime != '' }}">
+            <text class="server-order-item-name">营业时间</text>
+            <text class="server-order-item-right">{{ setverCofimLocal.shopServiceTime }}</text>
+          </view>
+        </view>
+        <view class="server-order-item server-remarks" wx:if="{{ text != '' }}">
+          <text class="server-order-item-name" wx:if="{{ serviveData.serviceDictWay == '图文咨询' }}">健康现状描述</text>
+          <text class="server-order-item-name" wx:else>备注</text>
+          <text class="server-order-item-right">{{ text }}</text>
+        </view>  
+      </view>
+    </view>
+  </view>
+  <!--支付-->
+
+  <view class="server-order-pay">
+    <view class="server-order-details-title">
+      支付
+    </view>
+    <view class="server-order-pay-details">
+      <view class="server-order-payInfo">
+        <text style="line-height: 60rpx;">支付方式</text>
+        <picker bindchange="bindPickerChange" disabled="{{ payTypes }}" range="{{payArray}}" style='float:right;'>
+          <view class="server-pay-method">
+            <text>{{ payType == 1?"在线支付":"线下支付" }}</text>
+            <image src='../../image/server-right.png'></image>
+          </view>
+        </picker>
+      </view>
+      <view class="server-order-price">
+        <text>服务价格</text>
+        <text class="order-price-right">{{ money.toFixed(moneys) }}</text>
+      </view>
+      <view class="server-price-true">
+        <text class="server-price-true-right">实付：<text class="cor">{{ money.toFixed(moneys) }}</text></text>
+      </view>
+    </view>
+  </view>
+  <!--支付-->
+  <view class="submitorder" bindtap='submitOrder'>
+    提交订单
+  </view>
+</view>

@@ -1,0 +1,44 @@
+<!--pages/serverNotice/serverNotice.wxml-->
+<view class="headDetails">
+              <view>{{serverItemMsg.department}}-{{serverItemMsg.departmentInfo}} ({{docNum}})</view>
+</view>
+ <view class="server-expert">         
+         <view class="server-expert-info">
+              <view class="server-expert-pic">
+                  <image src='../../image/login-new.png' mode='widthFix'/>
+              </view>
+              <view class="server-expert-content">
+                    <view class="server-expert-name">
+                     {{serverItemMsg.name}}
+                    </view>
+                    <view class="server-expert-work">{{serverItemMsg.department}}-{{serverItemMsg.proTitle}}</view>
+                    <view class="server-expert-place">{{serverItemMsg.eaName}}</view>
+              </view>
+                    
+        </view>
+         <view class="server-expert-bottom">
+                    <view class="server-feedback">
+                        <view class="server-num"> 服务0人  </view>
+                    </view>
+         </view>
+ </view>
+<view class="visitTime">
+                出诊时间
+</view>
+ <wxs module="timeMon">
+                var sub = function(val) {
+                    return val.substring(4,6)       
+                }
+                var subs = function(val) {
+                    return val.substring(6,8)       
+                }
+                module.exports.sub = sub;
+                module.exports.subs = subs;
+  </wxs>
+<view class="visitTimeList" wx:for="{{ serverListAll }}" wx:key="{{id}}">
+   <view>{{ item.dayOfWeekName }}({{timeMon.sub(item.registerDate)}}月{{timeMon.subs(item.registerDate)}}日)</view>              
+   <view class="timeApp_make{{idx==index?'a':''}}" wx:if="{{item.morningFull == 0}}" style="margin-left: 80rpx;" bindtap="morning" data-index="{{index}}" data-name="{{item}}">预约上午</view>
+   <view class="timeApp_make{{ids==index?'a':''}}" wx:if="{{item.afternoonFull == 0}}" style="margin-left: 80rpx;" bindtap="afternoon" data-index="{{index}}" data-name="{{item}}">预约下午</view>
+                   
+</view>
+<view class="butClass" bindtap="btnTop">提交预约</view>

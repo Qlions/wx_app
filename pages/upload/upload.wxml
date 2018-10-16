@@ -1,0 +1,17 @@
+<view class="upload">
+  <textarea bindblur="bindTextAreaBlur" placeholder="如何您有其他任何事宜，请在这说明..." value="{{ textarea }}" bindinput="bindtareatab" placeholder-style="color:#999;"/>
+  <view class="upload-img">
+    <view class="upload-img-src">
+      <view class="upload-img-src-list" wx:for="{{ imgSrc }}">
+        <image src="{{ item }}"></image>
+        <view class="remove-img" bindtap='removeImg' data-index="{{ index }}">
+          <image src='../../image/close_img.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class="upload-img-btn" bindtap='upload'>
+      <image src='../../image/add_img.png'></image>
+    </view>
+  </view>
+  <button type="primary" class="upload-btn" bindtap='uploadBtn'>确认提交</button>
+</view>

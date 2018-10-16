@@ -1,0 +1,74 @@
+ 
+/*pages/components/serverItem/serverItem.wxss 
+.serverItemView{
+    width: 100%;
+}
+ .serverItem{
+    display: flex; 
+    width: 92%;
+    margin: 20rpx  auto;
+}
+ .serverImage{
+    height: 200rpx;
+    width: 30%;
+    border-radius: 10rpx;
+}
+.serverImage image{
+    width: 100%;
+}
+
+.serverMsg{
+    font-size: 28rpx;
+    margin-left: 20rpx;
+    color: #333;
+    width: 70%;
+    
+}
+.serverMsg image {
+    width: 35rpx;
+    vertical-align: middle;
+    padding-right: 10rpx;
+
+}
+.serverName{
+    margin:5rpx 0 10rpx 0;
+}
+.serverEa, .serverClass{
+    font-size: 24rpx;
+    color: #999;
+}
+.serverEa{
+    line-height: 45rpx;
+}
+.eaName{
+    color: #494949;
+}
+.serverMoney{
+    font-size:32rpx; 
+    display: inline-block;
+    color: #ff5454;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 5rpx;
+}
+.serverBuy{
+    display: inline-block;
+    float: right;
+    color: #777;
+    font-weight: normal;
+}
+.serverBuy image{
+    width: 40rpx;
+    vertical-align: middle;
+    float: right;
+    padding-left: 10rpx;
+}
+.noData{
+    text-align: center;
+    font-size: 30rpx;
+    line-height: 70rpx;
+    color: #999;
+}
+
+dfa
+*/

@@ -1,0 +1,10 @@
+<wxs src="../filter/money.wxs" module="money" />
+<view class="serverItemInt">
+  <view class="serverItemInt-list" wx:for="{{ appointList }}">
+    <text class="timeDate">{{ item.dayOfWeekName }}({{ money.getDates(item.registerDate) }})</text>
+    <view class="serverItemInt-list-right">
+      <text class="timeDate_btn" wx:if="{{ item.morningFull != -1 }}" bindtap='appointTime' data-state="0" data-date="{{ item }}">{{ item.morningFull == 0 ? '预约上午': '上午约满' }}</text>
+      <text class="timeDate_btn" wx:if="{{ item.afternoonFull != -1 }}"bindtap='appointTime' data-state="1" data-date="{{ item }}">{{ item.afternoonFull == 0 ? '预约下午': '下午约满' }}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,74 @@
+/* pages/order/refund/refund.wxss */
+.list{
+    line-height: 80rpx;
+    font-size: 32rpx;
+    text-align: center;
+    border-bottom: 2rpx solid #eee;
+    width: 92%;
+    margin: 0 auto;
+}
+.refund_view{
+    color: #ff7f10;
+    line-height: 90rpx;
+    text-align: center;
+    border-bottom: 2rpx solid #eee;
+}
+.pay_selected{
+    width: 92%;
+    margin: 0 auto;
+    font-size: 32rpx;
+    color: #333;
+    border-bottom: 2rpx solid #eee;
+    line-height: 80rpx;
+}
+.pay_selected image{
+    width: 30rpx;
+    vertical-align: middle;
+}
+.selected{
+    float: right;
+    margin-top: 25rpx; 
+}
+.text1{
+    width: 100%;
+    line-height: 80rpx;
+    color: #333;
+    border-bottom: 2rpx solid #eee;
+}
+.text1 text{
+    padding-left: 4%;
+    font-size: 32rpx;
+
+}
+.zhifubao_input1{
+    display: flex;
+    width: 92%;
+    margin: 0 auto;
+    font-size: 28rpx;
+    color: #333;
+    border-bottom: 2rpx solid #eee;
+    line-height: 80rpx;
+}
+.zhifubao_input1 input {
+    margin-top: 14rpx;
+    text-align: right;
+    width:350rpx;
+    position: absolute;
+    right: 4%;
+}
+.tip{
+    line-height: 80rpx;
+    color: #666;
+    text-align: center;
+    font-size: 30rpx;
+    border-top: 2rpx solid #eee;
+}
+.submit_btn{
+    text-align: center;
+    font-size: 32rpx;
+    color: #fff;
+    line-height: 80rpx;
+    background: #63b64e;
+    width: 92%;
+    margin: 0 auto;
+}

@@ -1,0 +1,29 @@
+<!--pages/order/orderState/orderState.wxml-->
+<!--660089 orderId   userType 1-->
+<wxs module="filters" src="../../filter/money.wxs" />
+<view style='height: 100%; '>
+    <view style="border-bottom: 10rpx #eee solid;line-height: 70rpx;">
+        <view class="order_state">
+            <text class="order_id">订单编号:{{orderCode}}</text>
+            <text class="order_state_text">{{progress_arr[0].flowContent}}</text>
+        </view>
+    </view>
+    <view class="c" >
+
+        <view class="progress_pic">
+           <view  wx:for="{{progress_arr}}" wx:key="{{index}}">
+                <view class="line" hidden="{{index == 0}}"></view>
+                <view class="a {{index == 0? 'd': ''}}" >
+                    <view class="b  {{index == 0? 'd': ''}}"></view>
+                </view>
+           </view>
+        </view>
+        <view class='progress_text' >
+            <view class="progress {{index == 0? 'green': ''}}" wx:key="{{index}}" wx:for="{{progress_arr}}">
+                <text class="state">{{item.flowContent}}</text>
+                <text class='time'>{{filters.split_time_arr(item.createTime)[0]}}\t{{filters.split_time_arr(item.createTime)[1]}}</text>
+            </view>
+           
+        </view>
+    </view>
+</view>

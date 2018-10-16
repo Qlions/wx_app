@@ -1,0 +1,62 @@
+<!--pages/components/classify/classify.wxml-->
+<!-- 分类 -->
+<view class='classViewBox'>
+    <view 
+    class='classViewOpt' 
+    wx:for="{{ classText }}" 
+    wx:key="{{ index }}"
+    catchtap='targetType'
+    data-type = "{{item}}"
+    >
+        <image 
+        src='{{ item.imageSrc }}' 
+        mode='widthFix'></image>
+        <text>{{ item.value }}</text>
+    </view>
+</view>
+<view class='OptList'  >
+    <view 
+        class="OptItem {{ _num+1 === index+1  ? 'itemActive ' : '' }}" 
+        data-num="{{ index }}" 
+        wx:for="{{ OptList }}" 
+        bindtap='touchItem'
+        wx:key="{{ index }}"
+        >
+         <text>{{ item.value }}</text>
+         <image
+         wx:if="{{ index!=1 }}" 
+         src='{{  _num+1 === index+1 ? item.imageSrcUp : item.imageSrcDown }}' 
+         mode='widthFix'
+         ></image>
+          <image
+         wx:else 
+         src='{{ !priceImg ? item.imageSrcUp : item.imageSrcDown }}' 
+         mode='widthFix'
+         ></image>
+         <text  
+         class='line' 
+         hidden='{{ index == 3 }}'></text>
+         
+    </view>
+    
+</view>
+<view 
+class='childListDom' 
+hidden='{{ maskShow }}'
+>
+   <view 
+   class='childItemDom' 
+   wx:for="{{ OptList[_num].childList }}" 
+   data-text='{{ item.childValue }}' 
+   catchtap='targetNodeFn' 
+   wx:key="{{ index }}"
+   data-dictscope = "{{ item.type }}"
+   data-numbers='{{ _num }}'
+   data-index = "{{ item }}"
+   data-txt = "{{ item.text }}"
+   >{{ item.childValue }}</view>
+   <view 
+   class='maskView'
+   bindtap='bindMask'
+      ></view>
+</view>

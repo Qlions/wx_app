@@ -1,0 +1,209 @@
+/* pages/components/serverItem/serverItem.wxss */
+.serverItemView{
+    width: 100%;
+}
+ .serverItem{
+    display: flex; 
+    width: 92%;
+    margin: 20rpx  auto;
+}
+ .serverImage{
+    height: 200rpx;
+    width: 30%;
+    border-radius: 10rpx;
+}
+.serverImage image{
+    width: 100%;
+}
+
+.serverMsg{
+    font-size: 28rpx;
+    
+    margin-left: 20rpx;
+    color: #333;
+    width: 94%;
+    margin: 0 auto;
+    
+}
+.serverMsg image {
+    width: 35rpx;
+    vertical-align: middle;
+    padding-right: 10rpx;
+
+}
+.serverName{
+    /* margin:10rpx 0 10rpx 0; */
+    display: block;
+    
+}
+.serverEa, .serverClass, .serverNum, .goodRev, .servertime{
+    font-size: 24rpx;
+    color: #999;
+}
+.goodRev{
+    color: #8c8f8f;
+    margin-right: 10rpx;
+}
+.serverEa, .serverNum, .serverClass, .serverName, .servertime{
+    line-height: 50rpx;
+}
+.eaName{
+    color: #494949;
+}
+.serverTimeView, .serverClassView{
+    float: left;
+    height: 50rpx;
+}
+.serverTimeView{
+    margin-left: 10rpx;
+}
+.serverTimeView image{
+    width: 30rpx;
+    vertical-align: middle;
+    
+}
+.serverMoney{
+    font-size:32rpx; 
+    display: inline-block;
+    color: #ff5454;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 5rpx;
+}
+.serverBuy{
+    display: inline-block;
+    float: right;
+    color: #777;
+    font-weight: normal;
+}
+.serverBuy image{
+    width: 40rpx;
+    vertical-align: middle;
+    float: right;
+    padding-left: 10rpx;
+}
+.noData{
+    text-align: center;
+    font-size: 30rpx;
+    line-height: 70rpx;
+    color: #999;
+}
+.imgView{
+    width: 100%;
+    height: 450rpx;
+    overflow: hidden;
+}
+.imgView image{
+     width: 100%;
+     
+}
+.serverEaView{
+    border-top: 1rpx solid #eaeaea;
+}
+
+.purchaseNotice{
+    border-top: 8rpx solid #d7d7d7;
+    margin-bottom:100rpx;    
+}
+.purchaseNoticeText{
+    font-size: 30rpx;
+    color: #666;
+    height: 80rpx;
+    width: 94%;
+    margin: 0 auto;
+    border-bottom: 1rpx solid #eaeaea;
+}
+.more{
+    color: #999;
+    height: 100%;
+    float: right;
+}
+.more text{
+    line-height: 80rpx;
+    margin-right: 10rpx;
+}
+.more image{
+    width: 15rpx;
+    vertical-align: middle;
+    margin-top:-7rpx; 
+}
+.NoticeImage{
+    width: 100%;
+}
+
+/* 购买预约 */
+.buyMoneyBtn{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 100rpx;
+    margin-top: 100rpx;
+}
+.buyMoneyBtn text{
+    text-align: center;
+    line-height: 100rpx;
+    float: left;
+}
+.serverMoneysText{
+    background: #fafafa;
+    width: 50%;
+    color: #ff5454;
+    font-weight: bold;
+}
+.navigatorTwo{
+    width: 50%;
+    float: left;
+}
+.buy{
+    color: #fff;
+    background: #63b64e;
+    width: 100%;
+}
+.make{
+    color: #fff;
+    background: #ff9600;
+    width: 100%;
+}
+.service_info_content{
+    display: flex;
+    font-size: 30rpx;
+    border-top:8rpx solid #d7d7d7;
+    color:#555;
+}
+.tab_service_content{
+    font-size: 30rpx;
+    text-align: center;
+    line-height: 66rpx;
+    flex-grow: 1;
+}
+.active_tab{
+    color: #63b64e;
+    border-bottom: 4rpx solid #63b64e;
+}
+/* wxparse */
+.wxParse-div img{
+    margin-left: 0 !important;
+    width: 100%;
+}
+.wxParse-div{
+    width: 94%;
+    margin: 0 auto;
+}
+.rating{
+	float: right;
+}
+.rating image{
+	width: 16rpx;
+	/*height: 15rpx;*/
+    vertical-align: middle;
+}
+.wx_parse{
+    padding:  20rpx 0 20rpx 0;
+}
+.wx_parse image{
+    width: 100%;
+    margin: 0 auto;
+}
+.dispayImg{
+	display: initial;
+}

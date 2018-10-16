@@ -1,0 +1,93 @@
+/* pages/components/header/header.wxss */
+.headerView{
+  background: #fff;
+  text-align: center;
+  height: 84rpx;
+  line-height: 84rpx;
+  color: #000;
+  font-size: 36rpx;
+  width: 100%;
+}
+.header{
+  width: 94%;
+  margin: 0 auto;
+}
+.icon{
+  display: inline-block;
+  margin-top:10rpx;
+  position: absolute;
+  right: 22rpx;
+  
+}
+
+/*定位  */
+.positionBtn{
+  display: flex;
+  position: absolute;
+  left: 22rpx;
+  border: 2rpx #fff solid;
+  width: 260rpx;
+  font-size: 28rpx;
+  background: #fff;
+  height: 80%;
+  line-height: 48rpx;
+  margin-top: 8rpx;
+}
+
+.positionBtn image{
+  width: 26rpx;
+  margin-right:10rpx; 
+  
+}
+.addName{
+  max-width: 150rpx;
+  line-height: 58rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.searchviewTwo,.icon{
+  height: 70rpx;
+  margin: 0 auto  0 20rpx;
+  width: 60%;
+  background: #eee;
+  border-radius: 50rpx; 
+  float: right;
+}
+.searchviewTwo{
+  display: flex;
+}
+.iconViewS{
+  position: relative;
+  left: 30rpx;
+  height: 100%;
+  line-height:65rpx;
+}
+.iconViewS image {
+  width: 30rpx;
+  vertical-align: middle;
+  /* position: relative;
+  top: 10rpx; */
+  
+}
+.inputView{
+  width: 90%;
+  height:70rpx;
+  display: inline-block;
+}
+.inputView input {
+  width: 74%;
+  background: #eee;
+  margin: 0 auto;
+  height: 100%;
+  color: #333;
+  outline:none; 
+  line-height: 70rpx;
+  text-align:left;
+  text-indent: 2rpx;
+}
+.inputView input:focus{
+  color: #333;
+}

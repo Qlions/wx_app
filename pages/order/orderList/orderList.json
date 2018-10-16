@@ -1,0 +1,7 @@
+{
+    "backgroundTextStyle": "darg",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 5,
+    "disableScroll": false,
+    "navigationBarTitleText": "服务订单"
+}

@@ -1,0 +1,21 @@
+<view class="local_map">
+  <view class="local_map_seachr">
+    <image src='../../../image/fangdajing.png'></image>
+    <input  bindinput="bindKeyInput" value='{{ iputValue }}' placeholder="请输入关键字"/>
+  </view>
+  <view class="local_map_content" wx:if="{{ seachrDataList.length == 0 }}">
+    <map id="map" longitude="{{ lon }}" latitude="{{ lat }}" markers="{{ markers }}" scale="18" style="width: 100%; height: 450rpx;"></map>
+    <view class="local_map_list">
+      <view class="item" bindtap='getLoclaName' wx:for="{{ poisDataList }}" data-name="{{ item.name }}" data-location="{{ item.location }}">
+        <view class="name">{{ item.name }}</view>
+        <view class="address">{{ item.address }}</view>
+      </view>
+    </view>
+  </view>
+  <view class="local_map_sealist" wx:if="{{ seachrDataList.length > 0 }}">
+    <view class="local_map_sealist_item" bindtap="getSeaName" wx:for="{{ seachrDataList }}" data-name="{{ item.name }}" data-location="{{ item.location }}">
+      <view class="name">{{ item.name }}</view>
+      <view class="address">{{ item.address }}</view>
+    </view>
+  </view>
+</view>

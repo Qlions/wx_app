@@ -1,0 +1,538 @@
+/* pages/purchaseService/purchaseService.wxss */
+.serviceConfirmView{
+    width: 100%;
+    overflow: hidden;
+}
+.serviceConFirmBigView{
+    overflow: hidden;
+    padding:20rpx;
+    border-bottom: 8rpx solid #d7d7d7; 
+    background: #fff;
+}
+.setverCofimLocal {
+  width: 100%;
+  overflow: hidden;
+  margin-top:20rpx;
+}
+.serviceNmae-icon {
+  width: 40rpx;
+  text-align: center;
+}
+.setverCofimLocal view {
+  font-size: 12px;
+  color: #999;
+  padding-bottom: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.setverCofimLocal view image {
+  width: 25rpx;
+  height: 25rpx;
+  vertical-align:middle;
+}
+.setverCofimLocal view:last-child {
+  padding-bottom: 0;
+}
+.serviceIamge{
+    width: 150rpx;
+    height: 150rpx;
+    overflow: hidden;
+}
+.serviceConfirmMsg, .serviceIamge{
+    float: left;
+}
+.serviceConfirmMsg{
+    font-size: 26rpx;
+    width: 76%;
+    float:right;
+}
+.serviceConfirmbuyMsg image{
+    width:  30rpx;
+    vertical-align: middle;
+}
+.serviceConfirmEa{
+    display: block;
+    color: #999;
+}
+.serviceConfirmbuyMsg, .serviceConfirmEa, .serviceName{
+    margin: 16rpx 0; 
+} 
+
+/* 电话咨询 */
+.buyServiceMsg{
+    height: 80rpx;
+    background: #e5fae9;
+    padding:0 3% ;
+}
+.buyServiceMsg image {
+    width: 26rpx;
+    vertical-align: middle;
+    padding-right: 20rpx;
+}
+.buyServiceMsg text{
+    font-size: 26rpx;
+    line-height: 80rpx;
+    color: #3fa420;
+}
+.templateBuyServiceMsg{
+    width: 100%;
+}
+.serviceNmae{
+    width: 94%;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: box;
+}
+.serviceNmae image{
+    width: 26rpx;
+    vertical-align: middle;
+}
+.serviceNmae input{
+    float: left;
+    display: inline-block;
+    font-size: 26rpx;
+    color: #333;
+    margin-left: 20rpx;
+    -webkit-box-flex: 1;
+    -webkit-flex:1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.serviceLocal  {
+  width: 94%;
+  margin: 0 auto;
+}
+.serviceMarryNum,
+.serviceCradNum,
+.servicePhoneNum{
+    width: 94%;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: box;
+}
+.serviceCradNum image {
+  width: 30rpx;
+  vertical-align: middle;
+}
+.serviceLocal image {
+  width: 30rpx;
+}
+.serviceMarryNum image {
+  width: 30rpx;
+  vertical-align: middle;
+}
+.servicePhoneNum image{
+  width: 20rpx;
+  vertical-align: middle;
+}
+.serviceLocal input,
+.serviceMarryNum input,
+.serviceCradNum input,
+.servicePhoneNum input{
+    float: left;
+    display: inline-block;
+    font-size: 26rpx;
+    color: #333;
+    margin-left: 20rpx;
+    -webkit-box-flex: 1;
+    -webkit-flex:1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.padItem {
+  padding: 10rpx 0;
+  border-bottom:1rpx solid #d7d7d7;
+}
+.padItem:last-child {
+  border-bottom: none;
+}
+.serviceTime{
+    width: 94%;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: box;
+}
+
+.serviceTime image{
+    width: 28rpx;
+}
+.serviceTime input{
+    float: left;
+    display: inline-block;
+    font-size: 26rpx;
+    color: #333;
+    margin-left: 19rpx;
+    -webkit-box-flex: 1;
+    -webkit-flex:1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.serviceNote{
+    width: 94%;
+    margin: 0 auto;
+    display: box;
+    display: -webkit-box;
+}
+
+.serviceNote image{
+    width: 26rpx;
+}
+.serviceNote input{
+    float: left;
+    display: inline-block;
+    font-size: 26rpx;
+    color: #333;
+    margin-left: 20rpx;
+    -webkit-box-flex:1;
+    -webkit-flex:1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 服务人员 */
+.templateBuyServiceMsg{
+    height: 165rpx;
+}
+.servicePersonMsg{
+    width: 100%;
+}
+.servicePersonPhoto{
+    width: 23%;
+    margin: 20rpx auto 0 3%;
+    float: left;
+}
+.servicePersonPhoto image{
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+
+}
+.attention{
+    margin-left: 15rpx;
+    width: 130rpx;
+    height: 48rpx;
+    line-height: 48rpx;
+    font-size: 24rpx;
+    text-align: center;
+    border-radius: 8rpx;
+    border: 1rpx solid #e6e6e6;
+    color: #63b64e;
+    background: #f3f3f3;
+}
+.servicePersonMsgView{
+    width: 70%;
+    font-size: 26rpx;
+    color: #494949;
+    float: left;
+}
+.servicePersonName{
+    color: #333;
+    display: block;
+    margin-top: 10rpx;
+    line-height: 60rpx;
+}
+.servicePersonDocType{
+    color: #494949;
+    display: block;
+}
+.servicePersonEa{
+    color: #494949;
+    display: block;
+    line-height: 46rpx;
+}
+.servicePersonNum{
+    border-top: 1rpx solid #e6e6e6;
+    margin-top: 24rpx;
+    line-height: 72rpx;
+    color: #999;
+}
+.servicePersonServerGood{
+    float: right;
+}
+
+
+/* 结算 */
+.serviceSUM{
+    width: 100%;
+    height: 100rpx;
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    z-index: 9999;
+    border-top: 1rpx solid #e6e6e6;
+}
+.serviceSUM>view{
+    width: 50%;
+    float: left;
+    text-align: center;
+    line-height: 100rpx;
+    color: #ff5454;
+    background: #fff;
+    font-size: 32rpx;
+}
+.serviceSUM>view:last-of-type{
+    background: #63b64e;
+    color: #fff;
+}
+
+/* 签发授权 */
+.serverAuthorization{
+    color: #ff5454;
+    text-align: center;
+    line-height: 60rpx;
+    background: #fff;
+    font-size: 24rpx;
+    clear: both;
+    width: 94%;
+    margin:  0 auto;
+    border-top: 1rpx solid #e6e6e6;
+}
+.serverAuthorization image{
+    width: 26rpx;
+    vertical-align: middle;
+}
+.serviceMony{
+	float: right;
+	margin-right: 50rpx;
+}
+.server_fee_detail_item image{
+	width: 30rpx;
+  height: 30rpx;
+  vertical-align:middle;
+  margin-left:10rpx;
+}
+
+.server_fee_detail_list {
+    font-size:24rpx;
+    padding:20rpx 20rpx 0 20rpx;
+}
+.server_fee_detail_item>view {
+  padding-bottom: 20rpx;
+}
+.server_fee_detail_item_name {
+  color: #333;
+}
+.server_fee_detail_item_name text {
+  color: #f02828;
+  font-size: 20rpx;
+  margin-left: 20rpx;
+}
+.server_fee_detail_item_name switch {
+  float: right;
+}
+.wx-switch-input{
+  width:82rpx !important;
+  height:40rpx !important;
+}
+/*白色样式（false的样式）*/
+.wx-switch-input::before{
+  width:80rpx !important;
+  height: 36rpx !important;
+}
+/*绿色样式（true的样式）*/
+.wx-switch-input::after{
+  width: 40rpx !important;
+  height: 36rpx !important;
+}
+.server_fee_detail_item_com {
+  color:#999; 
+}
+
+radio .wx-radio-input{
+  height: 26rpx;
+  width: 26rpx;
+}
+.serviceLocal_box {
+  width: 100%;
+}
+.serviceLocal_box .serviceNmae-icon {
+  float: left;
+}
+.serviceLabel {
+  float:right;
+}
+.serviceLabel label {
+  font-size:26rpx;
+  color:#999;
+}
+.mail_address {
+  overflow:hidden;
+  padding-left: 40rpx;
+  display:-webkit-box;
+  display:-webkit-flex;
+  -webkit-box-align:center;
+  -webkit-align-items:center;
+  text-align:left;
+  clear:both;
+}
+.mail_address input {
+  -webkit-box-flex:1;
+  -webkit-flex:1;
+}
+.mail_address image {
+  width:14rpx;
+  height:60rpx;
+}
+.detailed {
+  float: right;
+  padding-left:100rpx;
+  padding-right:23rpx;
+}
+.detailed-text {
+  font-size: 26rpx;
+  color: #999;
+}
+.detailed image {
+  width:40rpx;
+  height:40rpx;
+  padding-top:34rpx;
+  float:right;
+}
+/*使屏幕变暗  */
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+/*对话框 */
+.commodity_attr_box {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 100rpx;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  font-size: 26rpx;
+  color: #333;
+}
+.total-content {
+  padding: 20rpx;
+}
+.total-title {
+  font-size: 32rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+.total-name {
+  color: #000;
+}
+.total-money {
+  color:#ff5454;
+}
+.cost-list>view {
+  padding: 20rpx 0;
+  display:box;
+  display:-webkit-box;
+  display:-moz-box;
+}
+.cost-item-one text,
+.cost-item text {
+  display: block;
+}
+.total-line {
+  -webkit-box-flex:1;
+  box-flex:1;
+  -moz-box-flex:1;
+  border-bottom: 1rpx dashed #e6e6e6;
+}
+.des-box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999;
+}
+.des-box-screen {
+  width: 100%;
+  height: 100%;
+  background: #333;
+  opacity: 0.5;
+  
+}
+.dex-one {
+  position: absolute;
+  top:50%;
+  left:50%;
+  width:590rpx;
+  height:500rpx;
+  margin: -250rpx 0 0 -295rpx;
+}
+.bsc-one {
+  position: absolute;
+  top:50%;
+  left:50%;
+  width:590rpx;
+  height:600rpx;
+  margin: -300rpx 0 0 -295rpx;
+}
+.des-box-content {
+  width: 100%;
+  height: 400rpx;
+  background:#fff;
+  border-radius: 10rpx;
+}
+.bsc-box-content {
+  width: 100%;
+  height: 500rpx;
+  background:#fff;
+  border-radius: 10rpx;
+}
+.des-box-text {
+  height:235rpx;
+}
+.close_des {
+  text-align: center;
+  padding: 20rpx;
+}
+.des-box-text-list view {
+  font-size: 26rpx;
+  color: #333;
+  padding-bottom: 10rpx;
+  line-height:40rpx;
+}
+.des-box-text-list {
+  padding:0 25rpx;
+  margin-top:50rpx;
+}
+.des-box-text-list view text {
+  width:25rpx;
+  height:25rpx;
+  border-radius:40rpx;
+  border:1px solid #333;
+  display:block;
+  text-align:center;
+  line-height:25rpx;
+  font-size:24rpx;
+  float:left;
+  margin-right:10rpx;
+  margin-top:4rpx;
+}
+.close_des image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.tab_service_content {
+  text-align: center;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+.des-box-text {
+  margin: 20rpx;
+  line-height: 48rpx;
+}

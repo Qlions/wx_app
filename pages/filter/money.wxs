@@ -1,0 +1,81 @@
+var toFixed = function (val) {
+  return '￥' + parseFloat(val).toFixed(2) ;
+}
+var phoneSub = function (val) {
+  return val.substring(0, 3) + '****' + val.substring(7);
+}
+// 转换时间戳
+var timeStamp = function (val) {
+  var timestamp = getDate(val).getTime();
+  return timestamp;
+}
+//时期转换格式 （07月05日）
+var getDates = function (val) {
+  return val.substring(4, 6)+'月'+val.substring(6,8)+'日';
+}
+//时期转换格式 （2018-07-05）
+var getDateLine = function (val) {
+  return val.substring(0, 4) + '-' + val.substring(4, 6) + '-' + val.substring(6, 8);
+}
+//切专家职务
+var proTitle = function (val){
+  return val.split(',')[0];
+}
+// 切时间
+var timeDate = function (val,state){
+  if(state == 2){
+    var time1 = val?(val.substring(0,10)):'';
+    var time2 =val?(val.substring(11,16)):''
+    return time1 + "\t" + time2;
+  }else if(state == 1){
+     return val.substring(0,4)+ "-" + val.substring(5,7)+ "-" + val.substring(8,10)
+  }else{
+     return val.substring(0,4)+ "-" + val.substring(5,7)+ "-" + val.substring(8,10)
+  }
+ 
+}
+
+//监测是否包含某个DOC000
+var isIncludes = function (val, docRemoved){
+  var waiter = val.split(':')[0];
+  if(waiter == 'DOC000' || docRemoved == 1 ){
+    return false;
+  }else{
+  return true;
+  }
+}
+
+//转number
+var intNumber = function (val){
+  return Number(val).toFixed(2)
+}
+// 切 时间  输出 数组
+var split_time_arr = function (val){
+  var arr_time = [];
+  arr_time = val.split("T");
+  //console.log(arr_time)
+  return arr_time;
+}
+
+// 四舍五入
+var NumberToFixed = function(val,num){
+  if (val == '100'){
+    return '100'
+  }else {
+    return Number(val).toFixed(num)
+  }
+  
+}
+module.exports = {
+  toFixed: toFixed,
+  phoneSub: phoneSub,
+  timeStamp: timeStamp,
+  getDates: getDates,
+  getDateLine: getDateLine,
+  proTitle: proTitle,
+  timeDate: timeDate,
+  isIncludes: isIncludes,
+  intNumber: intNumber,
+  split_time_arr: split_time_arr,
+  NumberToFixed: NumberToFixed
+};

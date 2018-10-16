@@ -1,0 +1,33 @@
+<!--pages/components/header/header.wxml-->
+<view class='headerView'>
+ <view class='header'>
+    <view class='positionBtn' 
+    hidden='{{ isLocationShow }}' 
+    bindtap='locationServer'
+    catchtouchmove="a"
+    >
+      <view style="height:70rpx;line-height:58rpx;"><image src='../../../image/address-point.png' mode="widthFix" style="vertical-align: middle;"></image></view> 
+      <text class='addName'>{{ addressName.name || "北京市" }}</text>
+      <view style="height:70rpx;line-height:70rpx;"><image src='../../../image/right.png' mode="widthFix"></image></view> 
+    </view>
+    <block > 
+    <navigator  class="searchviewTwo" url="/pages/search/search"> 
+        <view class='iconViewS'>
+              <!--<icon type='search' size='10' color='#999'></icon>-->
+              <image src="../../../image/fangdajing.png" mode="widthFix" />
+          </view>
+          <view class='inputView'>
+              <input type='text' confirm-type="search" bindfocus='focusHistory' bindblur="blurHistoryArr" bindconfirm='searchBtn'/>
+          </view>
+    </navigator>
+    </block>
+      <!-- <block  >
+            <navigator  class='icon' url="/pages/search/search"> 
+                <icon type='{{ iconType }}'  size='{{ iconSize}}' color='{{ iconColor }}'hidden='{{ isSearchShow }}'></icon>
+            </navigator>
+       </block>
+      -->
+   
+ </view>
+  
+</view>

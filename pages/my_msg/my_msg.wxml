@@ -1,0 +1,35 @@
+<!--pages/my_msg/my_msg.wxml-->
+<view style='border-bottom: 2rpx solid #eeeeee;background: #fff;'>
+    <view class="my_msg">
+        <view class="my_msg_header_image">
+            <image src="{{wx_user_message.photomiddle? wx_user_message.photomiddle: '../../image/logo.png'}}" mode="widthFix"></image>
+        </view>
+        <view class="my_msg_information">
+            <text >{{wx_user_message.userName}}</text>
+            <text>UID: {{wx_user_message.userCode}}</text>
+        </view>
+        <!--<view class="right_arrow">
+            <image src="../../image/right.png" mode="widthFix"></image>
+        </view>-->
+    </view>
+</view>
+
+<navigator url="../localAdmin/localAdmin" class="adress_list">
+    <view style='width: 88%; margin: 0 auto; height: 100%; display: flex;'>
+    
+        <view class="adress_icon">
+            <block>
+            <image src="../../image/adress_list.png" mode="widthFix" style=''></image>
+            </block>
+            <text >地址</text>
+        </view>
+        <view class="right_arrow_adress">
+            <image src="../../image/right.png" mode="widthFix"></image>
+        </view>
+    
+    </view>
+</navigator >
+
+<view class="out_login" catchtap="wx_showModal"> 
+    <text>退出</text>
+</view>

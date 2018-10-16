@@ -1,0 +1,5 @@
+<view class="expert-marr">
+  <view class="marrList" wx:for="{{ dataList }}" bindtap="selectInfo" data-item="{{ item }}">
+    {{ item.info }}
+  </view>
+</view>

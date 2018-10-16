@@ -1,0 +1,33 @@
+<view class="add-local">
+  <view class="add-local-name">
+    <view class="add-local-title">联系人</view>
+    <view class="add-local-info">
+      <view class="section add-local-info-name">
+        <view class="section__title">姓名：</view>
+        <input placeholder="请填写联系人姓名" value='{{ name }}' bindinput='bindNameInput'/>
+      </view>
+      <view class="section add-local-info-phone">
+        <view class="section__title">手机：</view>
+        <input placeholder="请填写手机号码" value='{{ tel }}' bindinput='bindTelInput'/>
+      </view>
+    </view>
+  </view>
+  <view class="add-local-content">
+    <view class="add-local-title">地址</view>
+    <view class="add-local-info">
+      <view class="section add-local-content-info">
+        <view class="section__title">小区/大夏/学校：</view>
+        <image src='../../../image/search_l.png' class="addree"></image>
+        <input placeholder="点击选择" bindtap='choiceLocla' value='{{ address }}'/>
+        <image src='../../../image/server-right.png' class="right"></image>
+      </view>
+      <view class="section add-local-content-info">
+        <view class="section__title">楼号-门牌号：</view>
+        <input placeholder="例16号楼201室" value='{{ addressInfo }}' bindinput='bindAddressInfoInput'/>
+      </view>
+    </view>
+  </view>
+  <view class="add-local-btn" bindtap='updateLocal'>
+    保存
+  </view>
+</view>

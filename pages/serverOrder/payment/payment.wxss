@@ -1,0 +1,58 @@
+/* pages/serverOrder/payment/payment.wxss */
+.payment {
+  width: 100%;
+}
+.payment_box {
+  text-align: center;
+  padding: 100rpx 20px;
+}
+.payment_box_title {
+  font-size: 26rpx;
+  color: #666;
+}
+.payment_box_money {
+  color: #eb615b;
+  font-weight: bold;
+  padding-top: 50rpx;
+}
+.payment_wx {
+  border-top: 1rpx solid #efefef;
+  border-bottom: 1rpx solid #efefef;
+  padding: 20rpx;
+  display: -webkit-box;
+  display: box;
+}
+.payment_wx_text {
+  -webkit-box-flex: 1;
+  -webkit-flex:1;
+  font-size: 26rpx;
+  color: #545654;
+  margin-left:20rpx;
+  
+}
+.payment_wx .weixin {
+  width:50rpx;
+  height:50rpx;
+  vertical-align:middle;
+  
+}
+.payment_wx .cancel {
+  width:50rpx;
+  height:50rpx;
+  vertical-align:middle;
+  position:absolute;
+  right:0;
+  margin-right:20rpx;
+  
+}
+.payment_btn {
+  width:95%;
+  height:80rpx;
+  font-size:26rpx;
+  color:#fff;
+  background:#63b64e;
+  border-radius:10rpx;
+  text-align:center;
+  line-height:80rpx;
+  margin:50rpx auto;
+}

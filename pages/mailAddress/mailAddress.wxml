@@ -1,0 +1,20 @@
+<view class="add-local">
+  <view class="add-local-content">
+    <view class="add-local-title">地址</view>
+    <view class="add-local-info">
+      <view class="section add-local-content-info">
+        <view class="section__title">小区/大夏/学校：</view>
+        <image src='../../image/search_l.png' class="addree"></image>
+        <input placeholder="点击选择" bindtap='choiceLocla' value='{{ address }}'/>
+        <image src='../../image/server-right.png' class="right"></image>
+      </view>
+      <view class="section add-local-content-info">
+        <view class="section__title">楼号-门牌号：</view>
+        <input placeholder="例16号楼201室" value='{{ addressInfo }}' bindinput='bindAddressInfoInput'/>
+      </view>
+    </view>
+  </view>
+  <view class="add-local-btn" bindtap='addLocal'>
+    保存
+  </view>
+</view>

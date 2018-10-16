@@ -1,0 +1,28 @@
+/* pages/serverItemInt/serverItemInt.wxss */
+.serverItemInt {
+  padding: 0 20rpx;
+}
+.serverItemInt-list {
+  padding: 20rpx 0;
+  border-bottom: 0.01rem solid #ebebeb;
+  font-size: 26rpx;
+}
+.timeDate {
+  line-height: 50rpx;
+}
+.serverItemInt-list-right {
+  float: right;
+}
+.serverItemInt-list .timeDate_btn {
+  color:#63b64e;
+  font-size:26rpx;
+  border:1rpx solid #63b64e;
+  border-radius:5rpx;
+  margin-right:20rpx;
+  width:140rpx;
+  display:block;
+  height:50rpx;
+  float:left;
+  text-align:center;
+  line-height:50rpx;
+}

@@ -1,0 +1,149 @@
+.log-list {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+}
+.log-item {
+  margin: 10rpx;
+}
+.headDetails{
+		height: 100rpx;
+		font-size: 28rpx;
+		line-height: 100rpx;
+		text-align: center;
+		color: #333333;
+		border-bottom: 20rpx solid #ebebeb;
+	}
+.server-expert{
+	padding: 0 30rpx;
+	background: #fff;
+}
+.server-expert-info{
+		height: 130rpx;
+		width: 100%;
+		padding: 30rpx 0;
+		position: relative;
+}
+.server-expert-pic{
+		width: 130rpx;
+		height: 130rpx;
+		float: left;
+}
+.server-expert-pic image{
+		display: block;
+    	width: 100%;
+    	height: 100%;
+    	border: 0 none;
+    	border-radius: 100%;
+}
+.server-expert-content{
+			float: left; 
+	    padding-left: 30rpx;
+	    width: 75%; 
+	    position: relative;
+}
+.server-expert-name{
+			font-size: 28rpx;
+	    color: #000;
+	    letter-spacing: 2rpx;
+	    margin-top: 10rpx;
+	    position: relative;
+	    display: inline-block;
+}
+.server-expert-place{
+			font-size: 24rpx;
+    	color: #858585;
+}
+.server-expert-btn{
+			position: absolute;
+    height: 45rpx;
+    width: 90rpx;
+    border-radius: 50rpx;
+    background: #63b64e;
+    font-size: 23rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 45rpx;
+    top: 60rpx;
+    right: 0;
+}
+.server-expert-bottom{
+			clear:both;
+	 		margin-left: 160rpx;
+	    width: 76%;
+	    height: 75rpx;
+	    border-top: 1rpx solid #f3f3f3;
+}
+.server-feedback{
+	height: 75rpx;
+	border-top: 1rpx solid #f3f3f3;
+}
+.server-expert-work{
+			font-size: 24rpx;
+	    margin-top: 8rpx;
+	    color: #777777;
+}
+.server-num{
+	 color: #7a7a7a;
+	    font-size: 24rpx;
+	    float: left;
+	    line-height: 75rpx;
+}
+.visitTime{
+		margin-top: 20rpx;
+		height: 90rpx;
+		background: #DEDEDE;
+		font-size: 28rpx;
+		line-height: 90rpx;
+		text-indent: 20rpx;
+		color: #333;
+	}
+	.butClass{
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		height: 100rpx;
+		text-align: center;
+		line-height: 100rpx;
+		font-size: 28rpx;
+		color: #fff;
+		background: #63b64e;
+	}
+	.visitTimeList{
+		display: -webkit-box;
+		-webkit-box-orient: horizontal;
+		height: 110rpx;
+		line-height: 110rpx;
+		font-size: 25rpx;
+		color: #333;
+		width: 90%;
+		margin: 0 auto;
+		border-bottom: 1rpx solid #e6e6e6;
+	}
+/*
+	 * 未预约
+	 */
+	.timeApp_make{
+		width: 150rpx;
+		height: 70rpx;
+		text-align: center;
+		line-height: 70rpx;
+		color: #64b451;
+		margin-top: 20rpx;
+		border-radius: 10rpx;
+		border: 1px solid #64b451;
+	}
+	/*
+	 * 选中
+	 */
+	.timeApp_makea{
+		width: 150rpx;
+		height: 70rpx;
+		text-align: center;
+		line-height: 70rpx;
+		background: #64b451;
+		color: #fff;
+		margin-top: 20rpx;
+		border-radius: 10rpx;
+		border: 1rpx solid #64b451;
+	}

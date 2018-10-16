@@ -1,0 +1,282 @@
+<!--pages/purchaseService/purchaseService.wxml-->
+<wxs src="../filter/money.wxs" module="money" />
+<!--
+    确认服务页面
+-->
+<view class='serviceConFirmBigView'>
+    <view class='serviceConfirmView'>
+        <view style='background: url( {{ serverItemMsg.imgUrl }}) no-repeat center; background-size: cover;' class='serviceIamge'></view>
+        <view class='serviceConfirmMsg'>
+            <text style='color:#333; font-size: 28rpx;' class='serviceName'>{{ serverItemMsg.serviceDictName }}</text>
+            <text class='serviceConfirmEa'>由<text style='color: #494949;'>\t{{ serverItemMsg.eaName }}\t</text>提供服务</text>
+            <view class='serviceConfirmbuyMsg'>
+                <image style='color:#ff5454;float:left' src='../../image/icon_wenhao.png' catchtap='bscModelClickHide' mode='widthFix'></image>
+                <text style='color:#ff5454;float:left' wx:if="{{ serverPersonData != '' }}">{{ money.toFixed(serverPersonData.serviceMoney) }}</text>
+                <text style='color:#ff5454;float:left' wx:else>{{ money.toFixed(serverItemMsg.serviceDictMoney) }}</text>
+                <view style='float:right;'>
+                    <image src='../../image/server_method.png' mode='widthFix'/>
+                    <text style='color: #999;'>\t{{ serverItemMsg.serviceDictComponent == "F003" || serverItemMsg.serviceDictComponent == "电话服务" ? "电话咨询" : serverItemMsg.serviceDictWay }}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="setverCofimLocal" wx:if="{{ serverItemMsg.serviceDictWay == '门诊(店)服务' || serverItemMsg.serviceDictWay == '综合服务' }}">
+      <view wx:if="{{ setverCofimLocal.eaAddressDetail != null }}">
+         <image src='../../image/server-address.png'/>
+        {{ setverCofimLocal.eaAddressDetail }}
+      </view>
+      <view wx:if="{{ setverCofimLocal.eaTel != null }}">
+        <image src='../../image/bell_icon.png'/>
+        {{ setverCofimLocal.eaTel }} 
+      </view>
+      <view wx:if="{{ setverCofimLocal.shopServiceTime != null }}">
+        <image src='../../image/server_time.png'/>
+        营业时间：{{ setverCofimLocal.shopServiceTime }}
+      </view>
+    </view>
+</view>
+<!-- 选择医生专家 -->
+<view style='width: 100%; border-bottom: 8rpx solid #d7d7d7;background:#fff;' wx:if="{{ serverItemMsg.reservationMode == 2}}">
+  <view class='buyServiceMsg'>
+        <image src='../../image/icon_a.png' mode='widthFix'/>
+        <text>选择医院专家</text>
+   </view>
+   <view class='serviceTime padItem' catchtap='depart'>
+        <view class="serviceNmae-icon">
+          <image src='../../image/icon_appoint.png' mode='widthFix'/> 
+        </view>
+        <input type='text' wx:if="{{ depart != '' }}" disabled="true" placeholder='请选择预约时间' value='{{ money.getDateLine(depart.registerDate) }} {{ depart.timeSlot == 1?"上午":"下午" }}（{{ depart.name }}-{{ depart.department }}）'/>
+        <input type='text' wx:else disabled="true" placeholder='请选择预约时间' value=''/>
+    </view>
+</view>
+<!--多点服务-->
+<view style='width: 100%; border-bottom: 8rpx solid #d7d7d7;background:#fff;' wx:if="{{ serverPersonData.items.length > 0 }}">
+  <view class='buyServiceMsg'>
+        <image src='../../image/icon_b.png' mode='widthFix'/>
+        <text>多一点服务，多一点健康</text>
+    </view>
+    <view class="server_fee_detail_list">
+      <view class="server_fee_detail_item" wx:for="{{ serverPersonData.items }}">
+        <view class="server_fee_detail_item_name">{{ item.serviceDictItemName }}<text>￥{{ item.serviceItemMoney }}</text><switch bindchange="switch1Change" data-item="{{ item }}" data-index="{{ index }}"/></view>
+        <view class="server_fee_detail_item_com">{{ item.serviceDictItemContent }}</view>
+      </view>
+    </view>
+</view>
+<!--多点服务-->
+<view style='width: 100%; border-bottom: 8rpx solid #d7d7d7;background:#fff;' wx:if="{{ depart != '' }}">
+  <view class='buyServiceMsg'>
+        <image src='../../image/icon_b.png' mode='widthFix'/>
+        <text>多一点服务，多一点健康</text>
+    </view>
+    <view class="server_fee_detail_list">
+      <view class="server_fee_detail_item">
+        <view class="server_fee_detail_item_name">挂号费<text>{{ money.toFixed(depart.hospitalServiceMoney) }}</text><image src='../../image/icon_wenhao.png' catchtap='desModelClickHide'></image></view>
+        <view class="server_fee_detail_item_com">{{ depart.name }}{{ depart.proTitle }}({{ depart.department }}){{ depart.createName }}</view>
+      </view>
+      <view class="server_fee_detail_item">
+        <view class="server_fee_detail_item_name">服务费<text>{{ money.toFixed(depart.costMoney) }}</text></view>
+        <view class="server_fee_detail_item_com">{{ depart.costRemark }}</view>
+      </view>
+    </view>
+</view>
+<!--人员信息-->
+<view class="from_content" style='width: 100%; border-bottom: 8rpx solid #d7d7d7;background:#fff; '>
+    <view class='buyServiceMsg'>
+        <image src='../../image/icon_b.png' mode='widthFix'/>
+        <text>使用该服务的人员真实信息</text>
+    </view> 
+    <view class='serviceNmae padItem'>
+        <view class="serviceNmae-icon">
+          <image src='../../image/serve_head_icon.png' mode='widthFix'/> 
+        </view>
+        <input type='text' value='{{ name }}' bindinput='getName' placeholder='真实姓名'/>  
+    </view>
+    <view class='servicePhoneNum padItem'>
+        <view class="serviceNmae-icon">
+          <image src='../../image/serve_phone.png' mode='widthFix'/> 
+        </view> 
+        <input type='number' value='{{ phone }}' bindinput='getPhone' placeholder='手机号'/>
+    </view>
+    <view class='serviceCradNum padItem' wx:if="{{ yyyz3 }}">
+        <view class="serviceNmae-icon">
+          <image src='../../image/idCard_icon.png' mode='widthFix'/> 
+        </view> 
+        <input type='number' value='{{ idCard }}' bindinput='getCard' placeholder='请输入身份证号'/>
+    </view>
+    <view class='serviceMarryNum padItem' bindtap='chooseMarr' wx:if="{{ yyyz4 }}">
+        <view class="serviceNmae-icon">
+          <image src='../../image/marry_icon.png' mode='widthFix'/> 
+        </view> 
+        <input type='text' disabled="true" value='{{ marryInfo }}' placeholder='请选择婚姻状况'/>
+    </view>
+    <view class='serviceCradNum padItem' wx:if="{{ serverItemMsg.serviceDictWay == '上门服务' }}" bindtap="goLocal">
+        <view class="serviceNmae-icon">
+          <image src='../../image/search_l.png' mode='widthFix'/> 
+        </view> 
+        <input type='text' disabled="true" value='{{ address }}{{ addressInfo }}' placeholder='请输入地址'/>
+    </view>
+    <view class='serviceTime padItem' catchtap='checkTime' wx:if="{{ types == 1 && serverItemMsg.reservationMode != 2 }}">
+        <view class="serviceNmae-icon">
+          <image src='../../image/server_time.png' mode='widthFix'/> 
+        </view>
+        <input type='text' disabled="true" placeholder='请选择服务时间' value='{{ DataTimes }}'/>
+    </view>  
+    <view class='serviceLocal padItem' wx:if="{{ yyyz5 }}">
+        <view class="serviceLocal_box">
+          <view class="serviceNmae-icon">
+            <image src='../../image/serviceEa.png' mode='widthFix'/> 
+          </view> 
+          <input type='text' disabled="true" placeholder='请选择报告领取方式'/>
+          <view class="serviceLabel">
+            <radio-group class="radio-group" bindchange="radioChange">
+              <label class="radio" wx:for="{{ radioItems }}">
+                <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+              </label>
+            </radio-group>
+          </view>
+        </view>
+        <view class="mail_address" wx:if="{{ radioLabel == 0 }}" bindtap='mailAddress'>
+          <input type='text' disabled="true"  value='{{ mailInfo }}' placeholder='请选择邮寄地址'/>
+          <image src='../../image/server-right.png'></image>
+        </view>
+    </view>
+    <view class='serviceNote padItem' bindtap="goUpload">
+        <view class="serviceNmae-icon">
+          <image src='../../image/serve_beizhu.png' mode='widthFix'/> 
+        </view>   
+        <input type='text' disabled="true" placeholder='健康现状描述' value='{{ textarea }}' wx:if="{{ serverItemMsg.serviceDictWay == '图文咨询' }}"/>
+        <input type='text' disabled="true" placeholder='备注' value='{{ textarea }}' wx:else/>
+    </view>
+</view>
+<!--服务人员-->
+<view style='height:500rpx;background:#fff;width:100%;' >
+    <view class='buyServiceMsg'>
+        <image src='../../image/icon_c.png' mode='widthFix'/>
+        <text>TA为您服务</text>
+        <navigator class="serviceMony" url='/pages/serveMony/serveMony?serviceDictId={{serverPersonData.serviceDictId}}&userId={{serverPersonData.userId}}' wx:if="{{serverPersonData_if.length > 1 && serviceDicIden == ''}}">
+             <text>更多</text>
+        </navigator>
+    </view>
+    <view class='servicePersonMsg'  wx:if="{{serverPersonData}}">
+        <view class='servicePersonPhoto'>
+            <image src='{{ serverPersonData.photosmall }}' mode='widthFix'/>
+            <view class='attention' bindtap='bindFollow' data-id="{{ serverPersonData.attentionId }}" data-userId="{{ serverPersonData.userId }}">
+                <text>{{ isFocus ? '已关注' : '+\t关注' }}</text>
+            </view>
+        </view>
+        <view class='servicePersonMsgView' >
+            <text class='servicePersonName'>{{ serverPersonData.name }}</text>
+            <text class='servicePersonDocType'>{{serverPersonData.department}}\t{{serverPersonData.proTitle}}</text>
+            <text class='servicePersonEa'>{{ serverPersonData.eaName }}</text>
+            <view class='servicePersonNum'>
+                <text class='servicePersonServerNum'>已服务\t<text style='color:#494949;'>{{ serverPersonData.serverCount }}</text>\t次</text>
+                <text class='servicePersonServerGood'><text style='color:#494949;'>{{ money.NumberToFixed(serverPersonData.serviceScore == null ? "100" : serverPersonData.serviceScore,0 ) }}%</text>好评</text>
+            </view>
+        </view>
+    </view>
+    <view class='serverAuthorization' bindtap='catchChecked' wx:if="{{serverPersonData}}">
+        <image mode="widthFix" src='{{ imageUrl }}'></image>
+        <text> 签发授权 （请务必仔细阅读所购买服务相关内容，慎重选择）</text> 
+    </view>
+    <text wx:elif="{{ !serverPersonData && serverItemMsg.serviceDictWay != '上门服务'}}" style='font-size: 28rpx; text-align: center; line-height: 312rpx;width:100%; color: #999;display:inline-block;'>您的签约医生团队未开通服务</text>
+    <text wx:else style='font-size: 28rpx; text-align: center; line-height: 312rpx;width:100%; color: #999;display:inline-block;'>您的服务地址超出服务范围</text>
+</view>
+
+<!--结算价格-->
+<view class='serviceSUM' wx:if="{{ serverPersonData != ''}}">
+    <view>
+      <text>{{ money.toFixed(serverMoneys) }}</text>
+      <view class="detailed" wx:if="{{ serverPersonData.items.length > 0 || depart!='' }}" bindtap='showModal'>
+        <text class="detailed-text">明细</text>
+        <image src='../../image/icon_up_arrow.png'></image>
+      </view> 
+    </view>
+    <view style="background:#aaa;" wx:if="{{ serverPersonData.docTime == 0 && serverPersonData.serviceReservation == true }}">专业人员休息</view>
+    <view bindtap='nextTips' wx:else>去结算</view>  
+</view>
+<view class='serviceSUM' wx:if="{{ serverPersonData == ''}}">
+    <view>
+      <text>{{ money.toFixed(serverMoneys) }}</text>
+      <view class="detailed" wx:if="{{ serverPersonData.items.length > 0 || depart!='' }}" bindtap='showModal'>
+        <text class="detailed-text">明细</text>
+        <image src='../../image/icon_up_arrow.png'></image>
+      </view> 
+    </view>
+    <view style="background:#aaa;" >去结算</view>
+</view>
+ <!--屏幕背景变暗的背景  -->
+<view class="detailed-modal" wx:if="{{showModalStatus}}" catchtap='HideModal'>
+    <view class="commodity_screen"></view>
+    <!--弹出框  -->
+    <view class="commodity_attr_box">
+      <view class="total-content">
+        <view class="total-title">
+          <text class="total-left total-name">合计</text>
+          <text class="total-right total-money">{{ money.toFixed(serverMoneys) }}</text>
+        </view>
+        <view class="cost-list" wx:if="{{ depart != '' }}">
+          <view class="cost-item-one">
+            <text class="total-left">基础服务费</text>
+            <text class="total-line"></text>
+            <text class="total-right">{{ serverItemMsg.serviceMoney }}</text>
+          </view>
+          <view class="cost-item">
+            <text class="total-left">挂号费</text>
+            <text class="total-line"></text>
+            <text class="total-right">{{ money.toFixed(depart.costMoney) }}  </text>
+          </view>
+          <view class="cost-item">
+            <text class="total-left">服务费</text>
+            <text class="total-line"></text>
+            <text class="total-right">{{ money.toFixed(depart.hospitalServiceMoney) }}  </text>
+          </view>
+        </view>
+        <view class="cost-list" wx:else>
+          <view class="cost-item-one">
+            <text class="total-left">基础服务费</text>
+            <text class="total-line"></text>
+            <text class="total-right">{{ serverItemMsg.serviceMoney }}</text>
+          </view>
+          <view class="cost-item" wx:for="{{ arrItme }}">
+            <text class="total-left">{{ item.serviceDictItemName }}</text>
+            <text class="total-line"></text>
+            <text class="total-right">{{ money.toFixed(item.serviceItemMoney) }}  </text>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>
+<!-- 说明情况弹出框  -->
+<view class="des-box" wx:if="{{ desModel }}" catchtap='desModelClickShow'>
+  <view class="des-box-screen"></view>
+  <view class="dex-one">
+    <view class="des-box-content">
+      <view class="tab_service_content {{ bind_num == index ? 'active_tab' :''}}" wx:for="{{tap_sevice_conent_title}}"  wx:key="{{index}}" catchtap="bind_tab" data-num="{{index}}">{{item.serviceDictInfoName}}</view>
+      <view class="des-box-text">
+        <import src="../../wxParse/wxParse.wxml"/>
+        <template is="wxParse" data="{{wxParseData:reply.nodes}}"/>
+      </view>
+    </view>
+    <view class="close_des">
+      <image src='../../image/close.png'></image>
+    </view>
+  </view>
+</view>
+<!-- 说明情况弹出框  -->
+<view class="des-box" wx:if="{{ bscModel }}" catchtap='bscModelClickShow'>
+  <view class="des-box-screen"></view>
+  <view class="bsc-one">
+    <view class="bsc-box-content">
+      <view class="tab_service_content" style='font-size:34rpx;color:#3fa420;'>基础服务费说明</view>
+      <view class="des-box-text-list">
+        <view><text>1</text>包含中国健康云永久慢性病风险评估服务；</view>
+        <view><text>2</text>包含中国健康云不限量健康档案存储空间；</view>
+        <view><text>3</text>享受中国健康云VIP服务专员全程服务跟踪；</view>
+        <view><text>4</text>优先享受中国健康云健康咨询优先服务权；</view>
+      </view>
+    </view>
+    <view class="close_des">
+      <image src='../../image/close.png'></image>
+    </view>
+  </view>
+</view>

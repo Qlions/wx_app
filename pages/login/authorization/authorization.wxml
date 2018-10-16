@@ -1,0 +1,85 @@
+<!--pages/login/login.wxml-->
+<!--<view class='loginImg'>
+    <image src='../../image/login-new.png'  mode='widthFix'></image>
+</view>
+<view style='background: #fff;'>
+    <view class='formUsername'>
+        <image src="../../image/login_user_icon.png" mode='widthFix' />
+        <input type="text" placeholder="ID号/手机号/昵称/邮箱" placeholder-class="placeholderClass" bindinput='bindInputusername'/>
+    </view>
+    <view class='formPwd'  >
+        <image src="../../image/login_user_icon.png" mode='widthFix'  />
+        <view style=' display: inline-block;' wx:if='{{pawBoolean}}'>
+            <input type="text" placeholder="登录密码" placeholder-class="placeholderClass"  password="true" value="{{ pawwordValue }}" bindinput='bindInputPwd'/>
+        </view>
+       <view style=' display: inline-block;'  wx:elif='{{!pawBoolean}}'>
+            <input type="text" placeholder="登录密码" placeholder-class="placeholderClass"  value="{{ pawwordValue }}" bindinput='bindInputPwd'/>
+        </view>
+ 
+        <image src='{{ pawBoolean ? "../../image/pwd_close.png" : "../../image/pwd_show.png"}}' mode='widthFix' catchtap='pwdShow'></image>
+    </view>
+</view>
+<view class='loginBtn' catchtap='loginUser'>
+    登录
+</view>
+-->
+
+
+<!--手机验证码-->
+<!--<view class="wx_phone_number">
+    <view class="phone_get_code">
+        <view class="phone_number">
+            <text class='number_text'>手机号 </text>
+            <input type="text" placeholder="请输入您的手机号" placeholder-class="phone_placeholder"/>
+            <text class="seconds_text">38s后请重试</text>
+        </view>
+        <view class="phone_code">
+            <text class='code_text'> 验证码 </text><input type="text" placeholder="请输入验证码" placeholder-class="phone_placeholder"/>
+        </view>
+    </view>
+    <view class="phone_number_btn">
+        <text>验证</text>
+    </view>
+</view>
+-->
+
+<!--微信授权-->
+<view class="wx_authorization">
+    <view class="logo_image">
+        <image src="../../../image/logo.png"   mode='widthFix'></image>
+        <text>微健康云</text>
+    </view>
+
+    <view class="apply_content">
+        <text>申请获得您的公开信息(昵称、头像等)</text>
+    </view>
+
+    <view class="authorization_next" catchtap="get_code_login">
+        <text>微信授权</text>
+    </view>
+
+    <view class="authorization_next" catchtap="go_home" style="background: #999;">
+        <text>回到首页</text>
+    </view>
+</view>
+
+<!--验证中心-->
+<!--<view class="wx_validation">
+    <view class="logo_image">
+        <image src="../../../image/logo.png"   mode='widthFix'></image>
+        <text>微健康云</text>
+    </view>
+
+    <view class="phone_input">
+        <input type="text" placeholder="请输入您的手机号" placeholder-class="phone_placeholder"/>
+    </view>
+    <view class="tip_content">
+        <text>如果您还没有用这个手机号注册过健康云，我们将为您创建健康云账号。</text>
+    </view>
+
+    <view class="validation_next">
+        <text>下一步</text>
+    </view>
+</view>
+-->
+

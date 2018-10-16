@@ -1,0 +1,45 @@
+<!--pages/order/orderComplete/orderComplete.wxml-->
+<view class='big_box'>
+    <view class="icon_box">
+        <view class="success_box">
+            <icon type="success" size="50" color="" />
+        </view>
+        <view class="success_text">
+            <text>服务完成</text>
+        </view>
+        
+    </view>
+
+    <view class="btn_box">
+        <view class="btn1" >
+            <text catchtap="publishedShow">立即评价</text>
+        </view>
+        <view class='btn2'>
+            <navigator url="/pages/order/orderMsg/orderMsg?orderId={{orderId}}"  >
+                <text>订单详情</text>
+            </navigator>
+        </view>
+    </view>
+</view>
+
+<!--发表评价-->
+<view class='evaluation_model' hidden="{{isevaluationShow}}">
+    <view class='evaluation_model_text'>
+        <icon type="clear" size="16" color="#eee" catchtap="publishedShow"/>
+        <text>请评价本次服务</text>
+    </view>
+    <view class="evaluation_model_star">
+        <view class="z">
+            <image src="../../../image/red_star.png" data-num="{{index+1}}"  wx:key="1" wx:for="{{num_star}}" mode="widthFix"  catchtap="order_evaluation"/>
+            <image src="../../../image/gray_star.png" data-num="{{num_star+index+1}}" wx:key="{{index}}" wx:for="{{5-num_star}}"  catchtap="order_evaluation" mode="widthFix"/>
+        </view>
+    </view>
+    <view class="evaluation_model_textarea">
+        <textarea placeholder="这里可以说点话..."  fixed="true" bindinput="get_commentContent" value="{{published_data.textarea_value}}"/>
+    </view>
+    <view class='evaluation_model_btn' catchtap="published">
+        <text>提交评价</text>
+    </view>
+</view>
+
+<view class="mask" hidden="{{isevaluationShow}}" catchtouchmove="preventTouchMove"></view>

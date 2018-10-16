@@ -1,0 +1,16 @@
+<!--pages/serverOrder/payment/payment.wxml-->
+<wxs src="../../filter/money.wxs" module="money" />
+<view class="payment">
+  <view class="payment_box">
+    <text class="payment_box_title">支付金额</text>
+    <text class="payment_box_money">￥{{ money.intNumber(orderInfo.payMoney) ||  0.00}}</text>
+  </view>
+  <view class="payment_wx">
+    <image src='../../../image/pay-weixin.png' class="weixin" mode='widthFix'></image>
+    <text class="payment_wx_text">微信支付</text>
+    <image src='../../../image/pay_suc.png' class="cancel"mode='widthFix'></image>
+  </view>
+  <view class="payment_btn" catchtap="get_code">
+    确认支付
+  </view>
+</view>

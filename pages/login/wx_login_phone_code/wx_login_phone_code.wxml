@@ -1,0 +1,16 @@
+<!--手机验证码-->
+<view class="wx_phone_number">
+    <view class="phone_get_code">
+        <view class="phone_number">
+            <text class='number_text'>手机号 </text>
+            <input type="text" placeholder="请输入您的手机号" placeholder-class="phone_placeholder" disabled value="{{ phone_number_hide_four }}"/>
+            <text class="seconds_text" catchtap='again_code'>{{timeText}}</text>
+        </view>
+        <view class="phone_code">
+            <text class='code_text'> 验证码 </text><input type="text" placeholder="请输入验证码"  bindblur="get_phone_value" bindinput="reginput_length" placeholder-class="phone_placeholder"/>
+        </view>
+    </view>
+    <view class="phone_number_btn {{btn_color ? 'btn_color': ''}}" catchtap="login_number_suc">
+        <text>验证</text>
+    </view>
+</view>

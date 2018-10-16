@@ -1,0 +1,85 @@
+<!--pages/serverLocation/serverLocation.wxml-->
+<view class='cheackAddressView'>
+    <view class='addressView'>
+        <view class='addCityView'  catchtap='changeAddressShow'>
+            <view >
+                <block>
+                    <image src='../../image/search_l.png' mode='widthFix' class='locationImg'></image>
+                </block>
+                <block>
+                     <text class='addressName'>  {{ addressMsg.province == "" ? '' :  addressMsg.province + '-'}}{{ addressMsg.city != '县' &&  addressMsg.city != '市辖区' && addressMsg.city != '' && addressMsg.city != '省直辖县级行政单位'? addressMsg.city + "-" +addressMsg.district :  addressMsg.district }}</text> 
+                </block>
+            
+                <block>
+                    <image src='../../image/whit_arrow_right.png' mode='widthFix' class='checkImg'></image>
+                </block>
+            </view>
+           
+        </view>
+         <view class='locationTwo'>
+                <view class='locationBox'>
+                    <block>
+                        <image src='../../image/fangdajing.png' mode='widthFix' class='locationImg'></image>
+                        <input  class='addressName2'type="text" value='{{ addressMsg.name }}' placeholder='搜索地点/地标' placeholder-class='placeholderStyle' bindinput='getPolAdderss'/>
+                    </block>
+                    <block>
+                        
+                    </block>
+                
+                    <block>
+                        <image src='../../image/delete_addr.png' mode='widthFix' class='closeImg' catchtap='emptyVal'></image>
+                    </block>
+                </view>
+                <view class='myLocationBox' bindtap='getLocationAddress'>
+                    <image src='../../image/img_mylocation.png' class='locationMyImg' mode="widthFix"></image>
+                    <text class='myLocationText' >我的位置</text>
+                </view>
+            </view>
+        <view class='clear'></view>
+        <view class='searchAddressBtn' catchtap='startSearch'>
+            <text>开始搜索</text>
+        </view>
+    </view>
+</view>
+<view style='width: 100; height: 22rpx; background: #f5f5f5; margin-top: 300rpx;'></view>
+<view class='historyList' hidden='{{ inputSearchShow }}'>
+    <block>
+        <image src='../../image/img_his.png' mode='widthFix' class='historyIcon'></image>
+        <text class='historyText'>历史搜索记录</text>
+    </block>
+</view>
+<view class='inputSearch' hidden='{{ inputSearchShow }}'>
+    <view class='inputSearchList' wx:for="{{ historySearch }}" wx:key="{{ index }}" catchtap='locationlist' data-locationVal='{{item}}'>
+        <image src='../../image/server_address.png' mode='widthFix'></image>
+        <text>{{ item.name }}</text>
+        <text decode='{{true}}' style='display: block;'>{{item.address}}&nbsp;</text>
+    </view> 
+</view>
+<view class='inputSearch' >
+    <view class='inputSearchList'wx:for="{{ inputSearchArr }}" wx:key="{{ index }}"  hidden="{{item.address==''}}" catchtap='inputSearchCatch' data-item='{{item}}'>
+        <image src='../../image/server_address.png' mode='widthFix'></image>
+        <text>{{ item.name }}</text>
+        <text decode='{{true}}' style='display: block;'>{{item.address}}&nbsp;</text>
+    </view> 
+</view>
+<view class='historyList' hidden='{{ inputSearchShow }}' style=' text-align:center;' bindtap='clearStorageHistory'>
+    <block>
+        <image src='../../image/delete.png' mode='widthFix' class='historyIcon'></image>
+        <text class='historyText'>清空历史记录</text>
+    </block>
+</view>
+<picker-view indicator-style="height: 20rpx; line-height: 56rpx; " style="color: #63b64e; background: #fff;width: 100%; font-size: 16px; height: 60%;position:fixed; bottom:0; z-index: 13;" value="{{value}}" bindchange="changeCity" hidden='{{isMaskShow}}'>
+        
+    <picker-view-column>
+        <view wx:for="{{cityList.dictAreaCacheList}}" wx:key='{{index}}'style="line-height: 34px; width:170rpx;">{{item.nodeSname || region[0]}}</view>
+    </picker-view-column>
+    <picker-view-column >
+        <view wx:for="{{townList}}" wx:key='{{index}}' style="line-height: 34px; ">{{item.nodeSname}}</view>
+    </picker-view-column>
+    <picker-view-column>
+        <view wx:for="{{countyList}}" wx:key='{{index}}'style="line-height: 34px">{{item.nodeSname}}</view>
+    </picker-view-column>
+</picker-view>
+<view style='background:#000; opacity:0.4; width:100%; height:100%; position:fixed; bottom:0; z-index:12;' class='maskView' hidden='{{isMaskShow}}' catchtap='hiddenMask' catchtouchmove="preventD"> </view>
+
+

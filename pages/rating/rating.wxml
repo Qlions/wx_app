@@ -1,0 +1,47 @@
+<!--pages/serverNotice/serverNotice.wxml-->
+<view class="server_Eva" wx:for="{{ serverListAll }}" wx:key="{{ id }}">
+        <view class="evaName">
+            <wxs module="nameSub">
+                var sub = function(val) {
+                    return val.substring(0,1)       
+                }
+                module.exports.sub = sub;
+            </wxs>
+             <!-- <wxs module="nameSub_end">
+                var sub = function(val) {
+                    return val.substring(item.userName.length-1,item.userName.length)       
+                }
+                module.exports.sub = sub;
+            </wxs> -->
+            <view class="evaName_one">
+                    
+                   <image src='{{ item.photosmall }}' mode='widthFix'/>
+                   <view class="evaName_span">{{nameSub.sub(item.userName)+"*"}}</view>
+                   <!-- <view class="evaName_span" wx:else="{{ item.userName.length >= 2  }}">{{nameSub.sub(item.userName)+"**"}}{{ nameSub_end.sub(item.userName) }}</view> -->
+             </view>
+                <view class="evaName_two">
+                   <image src='../../image/pingjiaxingxing.png' mode='widthFix' wx:for="{{item.star}}" wx:key="{{id}}"/>
+                   <image src='../../image/unShineStar.png' mode='widthFix' wx:for="{{5-item.star}}" wx:key="{{id}}"/>  
+                </view>
+            </view>
+            <view class="serve_cent">
+                                       {{ item.commentContent }}
+            </view>
+            <wxs module="util">
+                var sub = function(val) {
+                    return val.substring(0, 10)       
+                }
+                module.exports.sub = sub;
+            </wxs>
+            <wxs module="util_t">
+                var sub = function(val) {
+                    return val.substring(11, 20)       
+                }
+                module.exports.sub = sub;
+            </wxs>
+
+            <view class="evaTime">
+                 {{util.sub(item.createTime)}}
+                 {{util_t.sub(item.createTime)}}
+            </view>
+</view>

@@ -1,0 +1,78 @@
+{
+    "pages": [
+        "pages/serverIndex/serverIndex",
+        "pages/serviceTime/serviceTime",
+        "pages/serverItemInt/serverItemInt",
+        "pages/search/search",
+        "pages/serverLocation/serverLocation",
+        "pages/serverItem/serverItem",
+        "pages/serverNotice/serverNotice",
+        "pages/serverOrder/serverOrder",
+        "pages/serverOrder/paySuc/paySuc",
+        "pages/serverOrder/payment/payment",
+        "pages/serverMarriage/serverMarriage",
+        "pages/mailAddress/mailAddress",
+        "pages/purchaseService/purchaseService",
+        "pages/login/wx_login_phone_num/wx_login_phone_num",
+        "pages/login/wx_login_phone_code/wx_login_phone_code",
+        "pages/login/authorization/authorization",
+        "pages/upload/upload",
+        "pages/localAdmin/localAdmin",
+        "pages/localAdmin/addLocal/addLocal",
+        "pages/order/orderList/orderList",
+        "pages/order/orderMsg/orderMsg",
+        "pages/my_msg/my_msg",
+        "pages/localAdmin/localMap/localMap",
+        "pages/localAdmin/updateLocal/updateLocal",
+        "pages/serveMony/serveMony",
+        "pages/rating/rating",
+        "pages/ogDetail/ogDetail",
+        "pages/departSelect/departSelect",
+        "pages/expertAppoint/expertAppoint",
+        "pages/order/refund/refund",
+        "pages/order/orderComplete/orderComplete",
+        "pages/order/orderState/orderState",
+        "pages/departmentDeta/departmentDeta"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "中国健康云",
+        "navigationBarTextStyle": "black"
+    },
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark",
+    "tabBar": {
+        "color": "#080403",
+        "selectedColor": "#63b64e",
+        "backgroundColor": "#ffffff",
+        "borderStyle": "black",
+        "position": "bottom",
+        "list": [
+            {
+                "text": "首页",
+                "iconPath": "./image/tabBar/home.png",
+                "selectedIconPath": "./image/tabBar/home_active.png",
+                "pagePath": "pages/serverIndex/serverIndex"
+            },
+            {
+                "text": "订单",
+                "iconPath": "./image/tabBar/order.png",
+                "selectedIconPath": "./image/tabBar/order_active.png",
+                "pagePath": "pages/order/orderList/orderList"
+            },
+            {
+                "text": "我的",
+                "iconPath": "./image/tabBar/my.png",
+                "selectedIconPath": "./image/tabBar/my_active.png",
+                "pagePath": "pages/my_msg/my_msg"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "connectSocket": 10000,
+        "uploadFile": 10000,
+        "downloadFile": 10000
+      }
+}
